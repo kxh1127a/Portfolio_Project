@@ -1,0 +1,710 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>MATRIX CALCULATOR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="../img/favicon.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100vh;
+            background-image: linear-gradient(#FFFFFF 20%, #D5D6D0);
+            overflow: hidden;
+        }
+
+        .matrixHeader {
+            width: 700px;
+            height: 50px;
+            background-color: #E8E8E3;
+            margin: auto;
+            margin-top: 50px;
+            border-radius: 7px;
+        }
+
+        .matrixTitle {
+            font-size: 24px;
+            text-align: center;
+            line-height: 50px;
+            color: #673b29;
+            font-family: "Raleway", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            letter-spacing: 0.2em;
+            font-weight: 500;
+        }
+
+        .matrixBox {
+            width: 1500px;
+            height: 800px;
+            margin: auto;
+        }
+
+        div[class^="matrixDiv"] {
+            width: 420px;
+            height: 700px;
+            background-color: #F5F5F5;
+            box-shadow: 7px 7px 5px gray;
+            border-radius: 15px;
+            padding: 15px;
+            display: inline-block;
+            float: left;
+            margin: 40px;
+        }
+
+        .matrixName {
+            width: 100%;
+            height: 50px;
+            color: #A06E59;
+            font-size: 25px;
+            line-height: 50px;
+            text-align: center;
+            margin-top: 10px;
+            font-family: "Raleway", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+
+        .matrixNameResult {
+            font-size: 30px;
+            font-weight: 400;
+            margin-top: 25px;
+        }
+
+        .inputValue {
+            width: 48%;
+            font-size: 15px;
+            text-align: center;
+            display: inline-block;
+            font-family: "Raleway", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+            color: #5F5C6D;
+        }
+
+        .inputValueNum {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .matrixInput {
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            margin-bottom: 5px;
+            font-size: 0;
+            text-align: center;
+        }
+
+        .matrixInputRow {
+            width: 50%;
+            height: 50px;
+            display: inline-block;
+        }
+
+        .matrixInputColumn {
+            width: 50%;
+            height: 50px;
+            display: inline-block;
+        }
+
+        .matrixInputBtn {
+            width: 80%;
+            appearance: none;
+            background-color: #E0E0E0;
+            opacity: 0.8;
+            border-radius: 5px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            height: 15px;
+        }
+
+        /*구글링 버튼 디자인*/
+        .matrixInputBtn::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 20px;
+            background: #E0E0E0;
+            border-radius: 5px;
+        }
+
+        .matrixInputBtn::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #CFBB92;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 0;
+        }
+
+        .matrixSetting {
+            width: 100%;
+            height: 50px;
+            font-family: "Raleway", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+
+        .matrixSetBtn {
+            width: 33.3333%;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            display: inline-block;
+            float: left;
+            border: 0;
+            background-color: #acac9a;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.4s;
+        }
+
+        .matrixSetBtn:hover {
+            background-color: #5F5F4F;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .matrixSetBtnLeft {
+            border-radius: 5px 0 0 5px;
+        }
+
+        .matrixSetBtnRight {
+            border-radius: 0 5px 5px 0;
+        }
+
+        .matrixOutputArea {
+            width: 100%;
+            height: 390px;
+            margin-top: 50px;
+            position: relative;
+            border: 0.5px solid lightgray;
+            border-radius: 5px;
+
+        }
+
+        .matrixOutputBox {
+            width: 90%;
+            height: 380px;
+            font-size: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+        }
+
+        .resultBtnArea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 65px;
+        }
+
+        .resultBtn {
+            width: 55px;
+            height: 55px;
+            font-size: 45px;
+            line-height: 55px;
+            color: white;
+            border-radius: 10px;
+            background-color: #787586;
+            margin: 40px 30px 0 38px;
+            border: 0;
+            cursor: pointer;
+            padding-top: 3px;
+            transition: 0.25s;
+        }
+
+        .resultBtn:hover {
+            background-color: #474554;
+            font-size: 37px;
+            font-weight: bold;
+        }
+
+        .matrixCell {
+            width: 60px;
+            height: 60px;
+            margin-top: 1px;
+            margin-left: 1px;
+            border: 0.1px solid lightgray;
+            text-align: center;
+            line-height: 60px;
+            border-radius: 3px;
+            background-color: rgba(250, 250, 250, 0.1);
+            font-family: "Noto Sans KR", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+        }
+
+        .alertBox {
+            width: 350px;
+            height: 100px;
+            border: 0.5px solid #E1B6B4;
+            position: absolute;
+            top: 50%;
+            margin-top: -51px;
+            left: 50%;
+            margin-left: -176px;
+            text-align: center;
+            line-height: 30px;
+            padding-top: 20px;
+            background-color: #FFDBC6;
+            font-family: "Raleway", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            border-radius: 7px;
+            display: none;
+            font-family: "Noto Sans KR", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 500;
+            font-style: normal;
+        }
+
+        /* 구글링 : inputBox 증가감소 화살표 제거 */
+        input[type='number']::-webkit-outer-spin-button,
+        input[type='number']::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+    </style>
+</head>
+
+
+<body>
+    <header class="matrixHeader">
+        <h1 class="matrixTitle">MATRIX CALCULATOR</h1>
+    </header>
+    <main>
+        <div class="matrixBox">
+            <section class="matrixMidBox">
+                <div class="matrixDivBoxA">
+                    <div class="matrixName">A matrix</div>
+                    <p class="inputValue">ROW <span id="inputValueArow" class="inputValueNum"> 1</span></p>
+                    <p class="inputValue">COLUMN <span id="inputValueAcolumn" class="inputValueNum"> 1</span></p>
+                    <div class="matrixInput">
+                        <div class="matrixInputRow"><input id="matrixAinputX" class="matrixInputBtn" type="range"
+                                min="1" max="6" value="1"></div>
+                        <div class="matrixInputColumn"><input id="matrixAinputY" class="matrixInputBtn" type="range"
+                                min="1" max="6" value="1"></div>
+                    </div>
+                    <div class="matrixSetting">
+                        <div id="matrixAsetBtn" class="matrixSetBtn matrixSetBtnLeft">Create</div>
+                        <div id="matrixArandomBtn" class="matrixSetBtn">Random</div>
+                        <div id="matrixAresetBtn" class="matrixSetBtn matrixSetBtnRight">Reset</div>
+                    </div>
+                    <div id="matrixAoutputArea" class="matrixOutputArea">
+                        <div id="matrixAoutputBox" class="matrixOutputBox"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="matrixMidBox">
+                <div class="matrixDivBoxB">
+                    <div class="matrixName">B matrix</div>
+                    <p class="inputValue">ROW <span id="inputValueBrow" class="inputValueNum"> 1</span></p>
+                    <p class="inputValue">COLUMN <span id="inputValueBcolumn" class="inputValueNum"> 1</span></p>
+                    <div class="matrixInput">
+                        <div class="matrixInputRow"><input id="matrixBinputX" class="matrixInputBtn" type="range"
+                                min="1" max="6" value="1"></div>
+                        <div class="matrixInputColumn"><input id="matrixBinputY" class="matrixInputBtn" type="range"
+                                min="1" max="6" value="1"></div>
+                    </div>
+                    <div class="matrixSetting">
+                        <div id="matrixBsetBtn" class="matrixSetBtn matrixSetBtnLeft">Create</div>
+                        <div id="matrixBrandomBtn" class="matrixSetBtn">Random</div>
+                        <div id="matrixBresetBtn" class="matrixSetBtn matrixSetBtnRight">Reset</div>
+                    </div>
+                    <div class="matrixOutputArea" class="matrixOutputArea">
+                        <div id="matrixBoutputBox" class="matrixOutputBox"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="matrixMidBox">
+                <div class="matrixDivBoxC">
+                    <div class="matrixName matrixNameResult">Result matrix</div>
+                    <div class="resultBtnArea">
+                        <button id="resultSumBtn" class="resultBtn"><i class="xi-plus"></i></button>
+                        <button id="resultSubBtn" class="resultBtn"><i class="xi-minus"></i></button>
+                        <button id="resultMultiBtn" class="resultBtn"><i class="xi-close"></i></button>
+                    </div>
+                    <div class="matrixOutputArea" class="matrixOutputArea">
+                        <div id="matrixResultOutputBox" class="matrixOutputBox"></div>
+                        <div id="alertBox" class="alertBox">A matrix와 B matrix의 <br>행과 열이 모두 같아야 합니다.</div>
+                        <div id="alertBox1" class="alertBox">A matrix의 열과 B matrix의 행이<br>일치하지 않아 연산이 불가능합니다.</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+
+    <script>
+        //input value 값표시 이벤트
+
+        let matrixInputValue = {
+            A_row: 0,
+            A_column: 0,
+            B_row: 0,
+            B_column: 0
+        }
+
+        window.addEventListener('mousemove', function (event) {
+            matrixInputValue.A_row = document.querySelector('#matrixAinputX').value;
+            matrixInputValue.A_column = document.querySelector('#matrixAinputY').value;
+            document.querySelector('#inputValueArow').innerHTML = matrixInputValue.A_row;
+            document.querySelector('#inputValueAcolumn').innerHTML = matrixInputValue.A_column;
+            matrixInputValue.B_row = document.querySelector('#matrixBinputX').value;
+            matrixInputValue.B_column = document.querySelector('#matrixBinputY').value;
+            document.querySelector('#inputValueBrow').innerHTML = matrixInputValue.B_row;
+            document.querySelector('#inputValueBcolumn').innerHTML = matrixInputValue.B_column;
+        })
+
+
+
+        //matrix A
+        const matrixAoperation = {
+            matrixArow: 0,
+            matrixAcolumn: 0,
+            matrixA: [],
+            matrixAset: function () {
+                this.matrixArow = document.querySelector('#matrixAinputX').value;
+                this.matrixAcolumn = document.querySelector('#matrixAinputY').value;
+            },
+            matrixAmake: function () {
+                let matrixAtempColumn = [];
+                this.matrixA = [];
+                for (let i = 0; i < this.matrixArow; i++) {
+                    for (let j = 0; j < this.matrixAcolumn; j++) {
+                        matrixAtempColumn.push('0');
+                    }
+                    this.matrixA.push(matrixAtempColumn);
+                    matrixAtempColumn = [];
+                }
+            },
+            matrixAvisualize: function () {
+                document.querySelector('#matrixAoutputBox').innerHTML = '';
+                for (let i = 0; i < this.matrixA.length; i++) {
+                    for (let j = 0; j < this.matrixA[0].length; j++) {
+                        document.querySelector('#matrixAoutputBox').innerHTML += `<input id="aCell${i}${j}" class="matrixCell" type="number" value="0">`;
+                        document.querySelector('#matrixAoutputBox').style.width = (61 * this.matrixAcolumn) + 'px';
+                        document.querySelector('#matrixAoutputBox').style.height = (61 * this.matrixArow) + 'px';
+                    }
+                }
+            },
+            matrixArandom: function () {
+                for (let i = 0; i < this.matrixArow; i++) {
+                    for (let j = 0; j < this.matrixAcolumn; j++) {
+                        this.matrixA[i][j] = Math.floor(Math.random() * 199) - 99;
+                        document.getElementById(`aCell${i}${j}`).value = this.matrixA[i][j];
+                    }
+                }
+            },
+            matrixAreset: function () {
+                for (let i = 0; i < this.matrixArow; i++) {
+                    for (let j = 0; j < this.matrixAcolumn; j++) {
+                        this.matrixA[i][j] = '0';
+                        document.getElementById(`aCell${i}${j}`).value = this.matrixA[i][j];
+                    }
+                }
+            },
+            getNumber: function () {
+                for (let i = 0; i < this.matrixArow; i++) {
+                    for (let j = 0; j < this.matrixAcolumn; j++) {
+                        this.matrixA[i][j] = document.getElementById(`aCell${i}${j}`).value;
+                    }
+                }
+                //console.log(this.matrixA);
+            },
+            /////키 입력 제한
+            inputKeyValue: function () {
+                document.querySelector('#matrixAoutputBox').addEventListener('input', function (event) {
+                    if (event.target.value > 100) {
+                        event.target.value = 99;
+                    } if (event.target.value < -99) {
+                        event.target.value = -99;
+                    }
+                })
+            }
+        }
+
+        //create
+        document.querySelector('#matrixAsetBtn').addEventListener(
+            'click',
+            function (event) {
+                matrixAoperation.matrixAset();
+                matrixAoperation.matrixAmake();
+                matrixAoperation.matrixAvisualize();
+            }
+        )
+
+        //random
+        document.querySelector('#matrixArandomBtn').addEventListener(
+            'click',
+            function (event) {
+                matrixAoperation.matrixArandom();
+            }
+        )
+
+        //reset
+        document.querySelector('#matrixAresetBtn').addEventListener(
+            'click',
+            function (event) {
+                matrixAoperation.matrixAreset();
+            }
+        )
+        // 키 입력 제한
+        matrixAoperation.inputKeyValue();
+
+
+
+
+        //matrix B
+        const matrixBoperation = {
+            matrixBrow: 0,
+            matrixBcolumn: 0,
+            matrixB: [],
+            matrixBset: function () {
+                this.matrixBrow = document.querySelector('#matrixBinputX').value;
+                this.matrixBcolumn = document.querySelector('#matrixBinputY').value;
+            },
+            matrixBmake: function () {
+                let matrixBtempColumn = [];
+                this.matrixB = [];
+                for (let i = 0; i < this.matrixBrow; i++) {
+                    for (let j = 0; j < this.matrixBcolumn; j++) {
+                        matrixBtempColumn.push('0');
+                    }
+                    this.matrixB.push(matrixBtempColumn);
+                    matrixBtempColumn = [];
+                }
+            },
+            matrixBvisualize: function () {
+                document.querySelector('#matrixBoutputBox').innerHTML = '';
+                for (let i = 0; i < this.matrixB.length; i++) {
+                    for (let j = 0; j < this.matrixB[0].length; j++) {
+                        document.querySelector('#matrixBoutputBox').innerHTML += `<input id="bCell${i}${j}" class="matrixCell" type="number" value="0">`;
+                        document.querySelector('#matrixBoutputBox').style.width = (61 * this.matrixBcolumn) + 'px';
+                        document.querySelector('#matrixBoutputBox').style.height = (61 * this.matrixBrow) + 'px';
+                    }
+                }
+            },
+            matrixBrandom: function () {
+                for (let i = 0; i < this.matrixBrow; i++) {
+                    for (let j = 0; j < this.matrixBcolumn; j++) {
+                        this.matrixB[i][j] = Math.floor(Math.random() * 199) - 99;
+                        document.getElementById(`bCell${i}${j}`).value = this.matrixB[i][j];
+                    }
+                }
+            },
+            matrixBreset: function () {
+                for (let i = 0; i < this.matrixBrow; i++) {
+                    for (let j = 0; j < this.matrixBcolumn; j++) {
+                        this.matrixB[i][j] = '0';
+                        document.getElementById(`bCell${i}${j}`).value = this.matrixB[i][j];
+                    }
+                }
+            },
+            getNumber: function () {
+                for (let i = 0; i < this.matrixBrow; i++) {
+                    for (let j = 0; j < this.matrixBcolumn; j++) {
+                        this.matrixB[i][j] = document.getElementById(`bCell${i}${j}`).value;
+                    }
+                }
+                //console.log(this.matrixB);
+            },
+            inputKeyValueB: function () {
+                document.querySelector('#matrixBoutputBox').addEventListener('input', function (event) {
+                    if (event.target.value > 100) {
+                        event.target.value = 99;
+                    } if (event.target.value < -99) {
+                        event.target.value = -99;
+                    }
+                })
+            }
+        }
+
+
+        //create
+        document.querySelector('#matrixBsetBtn').addEventListener(
+            'click',
+            function (event) {
+                matrixBoperation.matrixBset();
+                matrixBoperation.matrixBmake();
+                matrixBoperation.matrixBvisualize();
+            }
+        )
+        //random
+        document.querySelector('#matrixBrandomBtn').addEventListener(
+            'click',
+            function (event) {
+                matrixBoperation.matrixBrandom();
+            }
+        )
+
+        //reset
+        document.querySelector('#matrixBresetBtn').addEventListener(
+            'click',
+            function (event) {
+                matrixBoperation.matrixBreset();
+            }
+        )
+
+        matrixBoperation.inputKeyValueB();
+
+
+        ////////matrixResult
+        const resultOperation = {
+            matrixResultRow: 0,
+            matrixResultColumn: 0,
+            matrixResult: [],
+            matrixResultSum: function () {
+                matrixAoperation.getNumber();
+                matrixBoperation.getNumber();
+                let totalSumArray = [];
+                if (matrixAoperation.matrixArow == matrixBoperation.matrixBrow &&
+                    matrixAoperation.matrixAcolumn == matrixBoperation.matrixBcolumn) {
+                    for (let i = 0; i < matrixBoperation.matrixB.length; i++) {
+                        totalSumArray.push([]);
+                        for (let j = 0; j < matrixBoperation.matrixB[0].length; j++) {
+                            totalSumArray[i][j] = (Number(matrixAoperation.matrixA[i][j]) + Number(matrixBoperation.matrixB[i][j]));
+                        }
+                        //console.log(totalSumArray);
+                        this.matrixResult = totalSumArray;
+                        document.getElementById('alertBox').style.display = "none";
+                        document.getElementById('matrixResultOutputBox').style.display = "block";
+                        document.getElementById('alertBox1').style.display = "none";
+                        //console.log(this.matrixResult);
+                    }
+                } else {
+                    document.getElementById('alertBox').style.display = "block";
+                    document.getElementById('matrixResultOutputBox').style.display = "none";
+                    document.getElementById('alertBox1').style.display = "none";
+                }
+            },
+            matrixResultSub: function () {
+                matrixAoperation.getNumber();
+                matrixBoperation.getNumber();
+                let totalSubArray = [];
+                if (matrixAoperation.matrixArow == matrixBoperation.matrixBrow &&
+                    matrixAoperation.matrixAcolumn == matrixBoperation.matrixBcolumn) {
+                    for (let i = 0; i < matrixBoperation.matrixB.length; i++) {
+                        totalSubArray.push([]);
+                        for (let j = 0; j < matrixBoperation.matrixB[0].length; j++) {
+                            totalSubArray[i][j] = (Number(matrixAoperation.matrixA[i][j]) - Number(matrixBoperation.matrixB[i][j]));
+                        }
+                        //console.log(totalSubArray);
+                        this.matrixResult = totalSubArray;
+                        document.getElementById('alertBox').style.display = "none";
+                        document.getElementById('matrixResultOutputBox').style.display = "block";
+                        document.getElementById('alertBox1').style.display = "none";
+                        //console.log(this.matrixResult);
+                    }
+                } else {
+                    document.getElementById('alertBox').style.display = "block";
+                    document.getElementById('matrixResultOutputBox').style.display = "none";
+                    document.getElementById('alertBox1').style.display = "none";
+                }
+            },
+            matrixResultMulti: function () {
+                matrixAoperation.getNumber();
+                matrixBoperation.getNumber();
+                let totalMultiArray = [];
+                if (matrixAoperation.matrixAcolumn == matrixBoperation.matrixBrow) {
+                    //console.log(matrixAoperation.matrixA);
+                    for (i = 0; i < matrixAoperation.matrixA.length; i++) {
+                        totalMultiArray.push([]);
+                        for (j = 0; j < matrixBoperation.matrixB[0].length; j++) {
+                            let tempMulti = 0;
+                            for (k = 0; k < matrixAoperation.matrixA[0].length; k++) {
+                                tempMulti += (Number(matrixAoperation.matrixA[i][k]) * Number(matrixBoperation.matrixB[k][j]));
+                            }
+                            totalMultiArray[i].push(tempMulti);
+                            this.matrixResult = totalMultiArray;
+                            //console.log(this.matrixResult); 
+                            document.getElementById('alertBox1').style.display = "none";
+                            document.getElementById('alertBox').style.display = "none";
+                            document.getElementById('matrixResultOutputBox').style.display = "block";
+                        }
+
+                    }
+                } else {
+                    document.getElementById('alertBox1').style.display = "block";
+                    document.getElementById('matrixResultOutputBox').style.display = "none";
+                    document.getElementById('alertBox').style.display = "none";
+                }
+            },
+            matrixResultvisualize: function () {
+                document.querySelector('#matrixResultOutputBox').innerHTML = '';
+                //console.log(this.matrixResult.length);
+                let commaValue = 0;
+                for (let i = 0; i < this.matrixResult.length; i++) {
+                    for (let j = 0; j < this.matrixResult[0].length; j++) {
+
+                        commaValue = resultOperation.matrixResult[i][j].toLocaleString();
+                        document.querySelector('#matrixResultOutputBox').innerHTML += `<input id="resultCell${i}${j}" class="matrixCell" type="text" value="${commaValue}" readonly>`;
+                        //console.log(resultOperation.matrixResult[i][j]);
+                        document.querySelector('#matrixResultOutputBox').style.width = (61 * this.matrixResult[0].length) + 'px';
+                        document.querySelector('#matrixResultOutputBox').style.height = (61 * this.matrixResult.length) + 'px';
+                    }
+                }
+            }
+        }
+
+        ///박스 생성 및 합계
+        document.querySelector('#resultSumBtn').addEventListener(
+            'click',
+            function () {
+                resultOperation.matrixResultSum();
+                resultOperation.matrixResultvisualize();
+            }
+        )
+
+        //뺄셈
+        document.querySelector('#resultSubBtn').addEventListener(
+            'click',
+            function () {
+                resultOperation.matrixResultSub();
+                resultOperation.matrixResultvisualize();
+            }
+        )
+
+        //곱셈
+        document.querySelector('#resultMultiBtn').addEventListener(
+            'click',
+            function () {
+                resultOperation.matrixResultMulti();
+                resultOperation.matrixResultvisualize();
+            }
+        )
+
+
+    </script>
+</body>
+
+</html>
+

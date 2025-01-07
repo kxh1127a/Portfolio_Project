@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee+Inline&family=Bungee+Tint&family=Protest+Guerrilla&display=swap" rel="stylesheet">
+    <link href="./reset.css" rel="stylesheet">
+    <link href="./style_guide.css" rel="stylesheet">
+    <link href="./style.css" rel="stylesheet">
+    <title>Pay_Complete_Page6</title>
+</head>
+
+<body>
+    <main class="payend_all_wrap">
+        <header class="header_1">
+            <p class="btn_back" onclick ="history.back();"></p>
+            <p class="txt_logo">CSR GYM</p>
+            <p class="btn_myinfo"></p>
+        </header>
+        <div class="payend_lower_wrap">
+            <p class="payend_txt">결제가 완료되었습니다</p>
+        </div>
+        <footer class="payend_footer">
+            <div class="area_btn">
+		    <form action="http://kkms4001.iptime.org:45210/receipt" method="get"><input type="text" name="title"><input type="text" name="body"><button class="btn_black" onClick="location.href='P_Pay_Receipt.html'">영수증 발급</button>
+                <button class="btn_default" onClick="location.href='P_Main_Intro.html'">처음으로</button>
+            </div>
+        </footer>
+    </main>
+
+</body>
+
+</html>

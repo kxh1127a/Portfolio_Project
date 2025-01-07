@@ -1,0 +1,17 @@
+<svg id="아이콘-결제완료-디폴트" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+    <defs>
+        <style>
+            .cls-1{fill:none}
+        </style>
+    </defs>
+    <g id="그룹_442" data-name="그룹 442">
+        <path id="패스_166" data-name="패스 166" class="cls-1" d="M262.849 216.033h36v36h-36z" transform="translate(-262.849 -216.033)"/>
+        <path id="_Transparent_Rectangle_" data-name="Transparent Rectangle" class="cls-1" transform="translate(3.454 3.51)" d="M0 0h29.038v29.038H0z"/>
+    </g>
+    <g id="그룹_576" data-name="그룹 576" transform="translate(-496.564 -522.631)">
+        <path id="사각형_349" data-name="사각형 349" class="cls-1" transform="translate(502.564 528.631)" d="M0 0h24v24H0z"/>
+        <g id="그룹_575" data-name="그룹 575">
+            <path id="패스_858" data-name="패스 858" d="M522.792 541.6c1.177-1.9 1.753-3.979.95-5.986a5.186 5.186 0 0 0-7.34-2.971 4.1 4.1 0 0 0-1.723 1.795.128.128 0 0 1-.232 0 4.1 4.1 0 0 0-1.723-1.795 5.186 5.186 0 0 0-7.34 2.971c-2.588 6.469 9.2 13.615 9.212 13.62a32.878 32.878 0 0 0 6.476-5.366" style="stroke:#424242;stroke-miterlimit:10;stroke-width:1.5px;fill:none"/>
+        </g>
+    </g>
+</svg>

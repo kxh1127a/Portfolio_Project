@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>music player</title>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gothic+A1&family=Noto+Sans+KR:wght@100..900&display=swap">
+    <link rel="icon" href="./media/music_player.png">
+    <link rel="stylesheet" href="./music_player.css">
+    <script src="./music_player.js" defer></script>
+</head>
+
+<body>
+
+    <div id="playerBox" class="playerBox">
+        <div class="hamburgerBtn"><i class="xi-music"></i></div>
+        <div id="songName" class="songName"></div>
+        <div id="artistName" class="artistName"></div>
+        <div id="jacketBoxWrapper" class="jacketBoxWrapper">
+            <div id="jacketBox" class="jacketBox">
+                <!-- <div id="equalizer" class="equalizerArea"></div> -->
+            </div>
+            <div id="equalizer" class="equalizerArea"></div>
+        </div>
+        <div class="lyricsBox"></div>
+
+        <div class="musicBox">
+            <div class="musicBar">
+                <div class="rangeBar">
+                    <audio id="audio"></audio>
+                </div>
+            </div>
+            <div class="barTimer">
+                <span class="current">0:00</span>
+                <span class="duration">2:45</span>
+            </div>
+        </div>
+
+        <div class="controlBox">
+            <div class="repeatBtn"><i id="repeatIcon" class="xi-repeat"></i></div>
+            <div class="backwardBtn"><i id="backwardBtn" class="xi-step-backward cB_small"></i></div>
+            <div id="playBtnBox" class="playBtnBox">
+                <i id="playBtn" class="playBtn xi-play cB_big"></i>
+                <i id="pauseBtn" class="pauseBtn xi-pause cB_big"></i>
+            </div>
+            <div class="forwardBtn"><i id="forwardBtn" class="xi-step-forward cB_small"></i></div>
+            <div class="shuffleBtn"><i id="shuffleIcon" class="xi-shuffle"></i></div>
+        </div>
+
+        <div class="optionBox">
+            <div class="volumeBtn">
+                <i class="xi-volume-up" id="volumeIcon"></i>
+                <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" style="width: 80px; ">
+            </div>
+            <div class="listBtn"><i class="xi-list-dot cB_small"></i></div>
+            <div class="starBtn"><i id="starIcon" class="xi-heart-o"></i></div>
+        </div>
+
+        <div class="music__list">
+            <div class="music-list-toggle">
+                <label class="square-switch">
+                    <input type="checkbox" id="toggleFavoritesSlider">
+                    <span class="slider">
+                        <span class="slider-text">ALL</span>
+                        <span class="slider-text">FAV</span>
+                    </span>
+                </label>
+            </div>
+            <div class="title">
+                <div>
+                    <i class="xi-list-dot"></i>
+                    <span>Music&nbsp;List</span>
+                </div>
+                <i class="xi-close"></i>
+            </div>
+
+            <div class="list">
+                <ul>
+                    <!-- JavaScript로 추가 -->
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

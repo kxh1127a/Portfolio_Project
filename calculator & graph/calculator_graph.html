@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/135227ba64.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="../img/icons8-calculator-96.png" type="image/x-icon">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <title>Calculator &amp; Graph</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Nanum Gothic", sans-serif;
+            font-weight: 600;
+            font-style: normal;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100vh;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #e3e6e6;
+        }
+
+        .titleArea {
+            width: 1100px;
+            height: 55px;
+            background-color: rgb(207, 211, 216, 0.7);
+            margin-top: 60px;
+            margin-bottom: 5px;
+            text-align: center;
+            line-height: 55px;
+            font-size: 28px;
+            border-radius: 15px;
+            letter-spacing: 5px;
+            color: #1A2731;
+            font-weight: 500;
+        }
+
+        .moreBtn {
+            width: 60px;
+            height: 25px;
+            background-color: rgb(255, 255, 255, 0);
+            color: black;
+            transition: 1s;
+            margin: 25px 0 35px 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="titleArea">Calculator &amp; Graph</div>
+    <div><button id="moreBtn" class="moreBtn">more</button></div>
+    <div id="mainInputArea" class="mainInputArea">
+        <div id="calcInputArea1" class="totalInputArea"></div>
+    </div>
+
+    <script>
+        class Calculation {
+            constructor(id) {
+                this.id = id;
+                this.calString = '';
+            }
+            initCal(targetDom) {
+                const calculatorHTML = `
+                    <section id="${this.id}" class="mainBox">
+                        <div id="${this.id}Result" class="resultArea">0</div>
+                        <div class="upperBox">
+                            <div class="canvasBtnBox">
+                                <button id="${this.id}canvasBtn" class="canvasBtn">graph</button>
+                            </div>
+                            <div class="decimalPoint">
+                                <input id="${this.id}inputPoint" class="inputPoint" type="range" style="width:90px" min="1" max="5" value="5">
+                                <div class="inputValue"><span>F</span><span>4</span><span>3</span><span>2</span><span>0</span></div>
+                            </div>
+                        </div>
+                        <button data-value="C" class="cYellow">C</button>
+                        <button data-value="(" class="cYellow">(</button>
+                        <button data-value=")" class="cYellow">)</button>
+                        <button data-value=">" class="cYellow"><i class="fa-solid fa-play icon"></i></button>
+                        <button data-value="7">7</button>
+                        <button data-value="8">8</button>
+                        <button data-value="9">9</button>
+                        <button data-value="/" class="cYellow"><i class="fa-solid fa-divide icon"></i></button>
+                        <button data-value="4">4</button>
+                        <button data-value="5">5</button>
+                        <button data-value="6">6</button>
+                        <button data-value="*" class="cYellow"><i class="fa-solid fa-xmark icon"></i></button>
+                        <button data-value="1">1</button>
+                        <button data-value="2">2</button>
+                        <button data-value="3">3</button>
+                        <button data-value="-" class="cYellow"><i class="fa-solid fa-minus icon"></i></button>
+                        <button data-value="0">0</button>
+                        <button data-value=".">.</button>
+                        <button data-value="=" class="cYellow">=</button>
+                        <button data-value="+" class="cYellow"><i class="fa-solid fa-plus icon"></i></button>
+                    </section>
+                `;
+                const calculatorCSS = `
+                    <style>
+                        .totalInputArea {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            transition: 1s;
+                            margin-bottom: 60px;
+                        }
+                        
+                        .mainBox {
+                            width: 260px;
+                            height: 420px;
+                            border-radius: 20px;
+                            background-color: #25323D;
+                            box-shadow: 3px 3px 3px 1px rgb(150, 150, 150);
+                            transition: 1s;
+                        }
+
+                        .resultArea {
+                            width: 100%;
+                            height: 70px;
+                            background-color: #1a2731;
+                            color: white;
+                            font-size: 18px;
+                            line-height: 70px;
+                            text-align: right;
+                            border-radius: 20px 20px 0 0;
+                            padding-right: 28px;         
+                        }
+
+                        .upperBox {
+                            display: flex;
+                        }
+
+                        .canvasBtn {
+                            background-color: #FDAD10;
+                            width: 50px;
+                            height: 20px;
+                            margin-top: 15px;
+                            margin-left: 30px;
+                            font-size: 12px;
+                            line-height: 20px;
+                        }
+
+                        .canvasBtn:hover {
+                            font-size: 10px;
+                            transition: 1s;
+                        }
+
+                        .decimalPoint {
+                            width: 100%;
+                            //border: 1px solid red;
+                            text-align: right;
+                            margin: 7.5px 0 7.5px 0;
+                            display: flex;
+                            flex-direction: column;
+                            align-items: end;                        
+                        }
+                        
+                        .inputPoint {
+                            height: 25px;
+                            background: #25323D;
+                            border-radius: 2px;
+                            appearance: none;
+                            cursor: pointer;
+                            //border: 1px solid red;
+                            position: relative;
+                            z-index: 1;
+                            padding-right: 20px;
+                        }
+                    
+                        .inputPoint::-webkit-slider-runnable-track {
+                            background: #E0E0E0;
+                            border-radius: 3px;
+                        }
+
+                        .inputPoint::-webkit-slider-thumb {
+                            -webkit-appearance: none;
+                            appearance: none;
+                            width: 10px;
+                            height: 10px;
+                            background: #FDAD10;
+                            border-radius: 2px;
+                            cursor: pointer;
+                        }
+                        
+                        .inputValue {
+                            color: #E0E0E0;
+                            display:flex;
+                            padding-right: 22.5px;
+                        }
+
+                        .inputValue span {
+                            margin-left: 11px;
+                            font-size: 7px;
+                            font-weight: 600;
+                            text-align: right;
+                        }
+
+                        button {
+                            width: 50px;
+                            height: 50px;
+                            background-color: #25323D;
+                            color: white;
+                            border-radius: 7px;
+                            border: none;
+                            margin: 1px 0px 5px 10.5px;
+                            cursor: pointer;
+                            transition: 0.15s;
+                        }
+
+                        button:hover {
+                            background-color: #FDAD10;
+                            color: white;
+                            font-weight: bold;
+                        }
+
+                        .cYellow {
+                            color: #FDAD10;
+                        }
+
+                        .icon { pointer-events: none; }
+                    </style>
+                `;
+                const canvasHTML = `
+                    <section id="${this.id}mainCanvasBox" class="mainCanvasBox">
+                        <div>
+                            <div id="${this.id}functionBox" class="functionBox">
+                                <div id="${this.id}f_name" class="functionType">Linear</div>
+                                <div id="${this.id}s_name" class="functionType">Quadratic</div>
+                                <div id="${this.id}t_name" class="functionType">Cubic</div>
+                                <div id="${this.id}c_name" class="functionType">Circle</div>
+                            </div>
+                            <div id= "inputMainBox" class="inputMainBox">
+                                <div id="${this.id}f_functionInput" class="functionInput f_functionInput ${this.id}functionInput">
+                                    <span> f(x) </span>
+                                    <span class="textEqual"> = </span>
+                                    <input id="${this.id}f_a" placeholder="a" tabIndex="10">
+                                    <span> x </span>
+                                    <span class="textPlus"> + </span>
+                                    <input id="${this.id}f_b" placeholder="b" tabIndex="20">
+                                </div>
+                                <div id="${this.id}s_functionInput" class="functionInput s_functionInput ${this.id}functionInput">
+                                    <span> f(x) </span>
+                                    <span class="textEqual"> = </span>
+                                    <input id="${this.id}s_a" placeholder="a" tabIndex="30">
+                                    <span> x<sup>2</sup> </span>
+                                    <span class="textPlus"> + </span>
+                                    <input id="${this.id}s_b" placeholder="b" tabIndex="40">
+                                    <span> x</span>
+                                    <span class="textPlus"> + </span>
+                                    <input id="${this.id}s_c" placeholder="c" tabIndex="50">
+                                </div>
+                                <div id="${this.id}t_functionInput" class="functionInput t_functionInput ${this.id}functionInput">
+                                    <span> f(x) </span>
+                                    <span class="textEqual"> = </span>
+                                    <input id="${this.id}t_a" placeholder="a" tabIndex="60">
+                                    <span> x<sup>3</sup> </span>
+                                    <span class="textPlus"> + </span>
+                                    <input id="${this.id}t_b" placeholder="b" tabIndex="70">
+                                    <span> x<sup>2</sup></span>
+                                    <span class="textPlus"> + </span>
+                                    <input id="${this.id}t_c" placeholder="c" tabIndex="80">
+                                    <span> x</span>
+                                    <span class="textPlus"> + </span>
+                                    <input id="${this.id}t_d" placeholder="d" tabIndex="90">
+                                </div>
+                                <div id="${this.id}c_functionInput" class="functionInput c_functionInput ${this.id}functionInput">
+                                    <span> &#40; x - </span>
+                                    <input id="${this.id}c_a" placeholder="a" tabIndex="100">
+                                    <span> &#41;<sup>2</sup> </span>
+                                    <span class="textPlus"> + </span>
+                                    <span> &#40; y - </span>
+                                    <input id="${this.id}c_b" placeholder="b" tabIndex="110">
+                                    <span> &#41;<sup>2</sup> </span>
+                                    <span class="textEqual"> = </span>
+                                    <input id="${this.id}c_r" placeholder="r" tabIndex="120">
+                                    <span><sup>2</sup></span>
+
+                                </div>
+                                <div class="drawBtnBox"><button id="${this.id}drawBtn" class="drawBtn">draw</button></div>
+                            </div>
+                            <canvas id="${this.id}canvas" class="canvas" width="500" height="500">
+                            </canvas>
+                            <div id="${this.id}moveBtnLeft" class="moveBtn moveBtnLeft">◀</div>
+                            <div id="${this.id}moveBtnTop" class="moveBtn moveBtnTop">▲</div>
+                            <div id="${this.id}moveBtnRight" class="moveBtn moveBtnRight">▶</div>
+                            <div id="${this.id}moveBtnBottom" class="moveBtn moveBtnBottom">▼</div>
+                            <section class="optionSec">
+                                <div id="${this.id}zoomInBtn" class="optionBtn"><i class="xi-zoom-in"></i></div>
+                                <div id="${this.id}zoomOutBtn" class="optionBtn"><i class="xi-zoom-out"></i></div>
+                                <div id="${this.id}zeroBtn" class="optionBtn"><i class="xi-my-location"></i></div>
+                                <div id="${this.id}clearBtn" class="optionBtn"><i class="xi-refresh"></i></div>
+                            </section>
+                        </div>
+                    </section>
+                `;
+                const canvasCSS = `
+                    <style>
+                        .mainCanvasBox {
+                            width: 500px;
+                            height: 650px;
+                            border-radius: 20px;
+                            background-color: #1a2731;
+                            box-shadow: 3px 3px 3px 1px rgb(150, 150, 150);
+                            overflow: hidden;
+                            position: relative;
+                            margin-left: 150px;
+                            opacity: 0;
+                            //top: -1000px;
+                            transition: 2s;
+                            display: none;
+                        }
+
+                        .functionBox {
+                            height: 50px;
+                            display: flex;
+                            justify-content: center;
+                            color: white;
+                            font-size: 13px;
+                            text-align: center;
+                            line-height: 50px;
+                            cursor: pointer;
+                        }
+
+                        .functionType {
+                            width: 50%;
+                            border-bottom: 1px solid lightslategray;
+                            display: inline-block;
+
+                        }
+
+                        .functionType:hover {
+                            color: #FDAD10;
+                            background-color: #25323D;
+                        }
+
+                        .s_functionInput,
+                        .t_functionInput,
+                        .c_functionInput {
+                            display: none;
+                            line-height: 39px;
+                        }
+
+                        .functionInput {
+                            width: 100%;
+                            height: 50px;
+                            color: white;
+                            text-align: center;
+                            padding: 8px;
+                        }
+
+                        .functionInput:first-child {
+                            line-height: 50px;
+                        }
+
+                        .functionInput input {
+                            width: 35px;
+                            text-align: center;
+                        }
+
+                        .textPlus,
+                        .textEqual {
+                            margin: 8px;
+                            color: #FDAD10;
+                        }
+
+                        input::-webkit-outer-spin-button,
+                        input::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            margin: 0;
+                        }
+
+                        .drawBtnBox {
+                            width: 100%;
+                            height: 50px;
+                            color: white;
+                            text-align: center;
+                            padding: 8px;
+                        }
+
+                        .drawBtn {
+                            width: 20%;
+                            height: 80%;
+                            color: white;
+                            text-align: center;
+                            margin: 0;
+                            border-radius: 3px;
+                        }
+
+                        .canvas {
+                            background-color: #25323D;
+                            border-radius: 0 0 20px 20px;
+                        }
+
+                        .moveBtn {
+                            width: 20px;
+                            height: 30px;
+                            background-color: #e69d0c;
+                            opacity: 0.8;
+                            position: absolute;
+                            font-size: 15px;
+                            text-align: center;
+                            cursor: pointer;
+                            border-radius: 5px;
+                            /* border: 1px solid rgb(193, 199, 178); */
+                            color: white;
+                            transition: 1s;
+                        }
+
+                        .moveBtn:hover {
+                            background-color: rgb(141, 86, 15, 0);
+                        }
+
+                        .moveBtnLeft {
+                            width: 20px;
+                            height: 30px;
+                            top: 385px;
+                            font-size: 15px;
+                            line-height: 29px;
+                        }
+
+                        .moveBtnRight {
+                            width: 20px;
+                            height: 30px;
+                            top: 385px;
+                            right: 0px;
+                            font-size: 15px;
+                            line-height: 29px;
+                        }
+
+                        .moveBtnTop {
+                            top: 150px;
+                            left: 236px;
+                            width: 30px;
+                            height: 20px;
+                            right: 0px;
+                            font-size: 15px;
+                            line-height: 20px;
+                        }
+
+                        .moveBtnBottom {
+                            top: 630px;
+                            left: 236px;
+                            width: 30px;
+                            height: 20px;
+                            right: 0px;
+                            font-size: 15px;
+                            line-height: 20px;
+                        }
+
+                        .optionSec {
+                            width: 69px;
+                            top: 155px;
+                            left: calc(100% - 75px);
+                            position: absolute;
+                        }
+
+                        .optionBtn {
+                            width: 30px;
+                            height: 30px;
+                            text-align: center;
+                            font-size: 15px;
+                            cursor: pointer;
+                            color: rgb(255, 255, 255);
+                            border-radius: 10px;
+                            display: inline-block;
+                            line-height: 30px;
+                            float: left;
+                            margin: 2px;
+                            border: 0.1px solid rgb(136, 94, 31);
+                            box-shadow: 1px 1px 0.5px 0.5px rgb(97, 96, 96);
+                            transition: 0.5s;
+                        }
+
+                        .optionBtn:hover {
+                            /* background-color: rgba(255, 255, 255, 0.7); */
+                            color: #FDAD10;
+                            font-size: 19px;
+                        }
+                    </style>
+                `;
+                targetDom.innerHTML += calculatorHTML + canvasHTML;
+                targetDom.innerHTML += calculatorCSS + canvasCSS;
+            }
+
+            displayData(getData) {
+                this.calString = '';
+                if (Array.isArray(getData)) {
+                    getData.forEach((v) => {
+                        this.calString += v;
+                    })
+                } else {
+                    this.calString = getData;
+                }
+                const displayValue = this.calString;
+                document.getElementById(this.id + "Result").innerHTML = displayValue;
+            }
+
+            displayResult(resultData, getPointIndex) {
+                const maxPointArray = [16, 4, 3, 2, 0];
+                const minPointArray = [0, 4, 3, 2, 0];
+                let maxPointValue = maxPointArray[getPointIndex - 1];
+                let minPointValue = minPointArray[getPointIndex - 1];
+                let pointOption = { minimumFractionDigits: minPointValue, maximumFractionDigits: maxPointValue };
+
+                try {
+                    this.calString = resultData;
+                    const resultValue = eval(this.calString).toFixed(maxPointValue);
+                    const resultValuePoint = parseFloat(resultValue).toLocaleString('ko-KR', pointOption);
+                    document.getElementById(this.id + "Result").innerHTML = resultValuePoint;
+                    this.calString = resultValuePoint;
+                } catch (err) {
+                    document.getElementById(this.id + "Result").innerHTML = "error";
+                }
+            }
+
+            inputData() {
+                class Deck {
+                    constructor(id) {
+                        this.id = id;
+                        this.storage = [];
+                        this.length = 0;
+                    }
+                    popItem() {
+                        return this.storage.pop();
+                    }
+                    pushItem(item) {
+                        this.storage.push(item);
+                    }
+                    shiftItem() {
+                        return this.storage.shift();
+                    }
+                    countLength() {
+                        this.length = this.storage.length;
+                        return this.length;
+                    }
+                }
+
+                const bundle = new Deck('bundle');
+
+                let makeDeliverValue = () => {
+                    let deliverValue = '';
+                    bundle.countLength();
+                    for (let i = 0; i < bundle.length; i++) {
+                        let tempValue = '';
+                        tempValue = bundle.shiftItem();
+                        deliverValue += tempValue;
+                        bundle.pushItem(tempValue);
+                    }
+                    return deliverValue;
+                }
+
+                let pointIndex = 0;
+
+                document.getElementById(`${this.id}inputPoint`).addEventListener('change', () => {
+                    pointIndex = document.getElementById(this.id + 'inputPoint').value;
+                })
+
+                document.getElementById(this.id).addEventListener('click', (e) => {
+                    let event = e ? e : event;
+                    if (e.target.dataset.value != null) {
+                        const btn = e.target.dataset.value;
+                        switch (btn) {
+                            case 'C':
+                                bundle.storage = [];
+                                this.displayData('0');
+                                break;
+
+                            case '=':
+                                this.displayData('');
+                                this.displayResult(makeDeliverValue(), pointIndex);
+                                bundle.storage = [];
+                                break;
+
+                            case '>':
+                                bundle.popItem();
+                                this.displayData(makeDeliverValue());
+                                break;
+
+                            default:
+                                bundle.pushItem(e.target.dataset.value);
+                                this.displayData(makeDeliverValue());
+                                break;
+                        }
+                    }
+                })
+            }
+
+            operateCanvas() {
+                class Canvas {
+                    constructor(id) {
+                        this.id = id;
+                        this.canvas = null;
+                        this.pen = null;
+                        this.moveWidth = 0;
+                        this.moveHeight = 0;
+                        this.scaleFactor = 20;
+                        this.scalePrint = 1 / this.scaleFactor;
+                    }
+
+                    initCan() {
+                        document.getElementById(this.id + 'canvasBtn').addEventListener('click', () => {
+                            const mainCanvasBox = document.getElementById(this.id + 'mainCanvasBox');
+                            let opa = mainCanvasBox.style.opacity;
+                            let topopa = mainCanvasBox.style.top;
+                            let topdis = mainCanvasBox.style.display;
+
+                            if (topdis == 'block') {
+                                mainCanvasBox.style.top = '-1000px';
+                                mainCanvasBox.style.display = 'none';
+                            } else {
+                                mainCanvasBox.style.top = '0px';
+                                mainCanvasBox.style.display = 'block';
+                            }
+
+                            setTimeout(() => {
+                                if (topdis == 'block') {
+                                    mainCanvasBox.style.opacity = '0';
+                                } else {
+                                    mainCanvasBox.style.opacity = '1';
+                                }
+                            }, 300)
+                        });
+
+                        this.canvas = document.getElementById(this.id + 'canvas');
+                        this.pen = this.canvas.getContext('2d');
+                    }
+
+                    menuSwitch() {
+                        document.getElementById(this.id + 'functionBox').addEventListener('click', (e) => {
+                            const funcName = e.target.id;
+
+                            document.querySelectorAll(`.${this.id}functionInput`).forEach(input => {
+                                input.style.display = "none";
+                            })
+
+                            switch (funcName) {
+                                case `${this.id}f_name`:
+                                    document.getElementById(this.id + 'f_functionInput').style.display = "block";
+                                    break;
+
+                                case `${this.id}s_name`:
+                                    document.getElementById(this.id + 's_functionInput').style.display = "block";
+                                    break;
+
+                                case `${this.id}t_name`:
+                                    document.getElementById(this.id + 't_functionInput').style.display = "block";
+                                    break;
+
+                                case `${this.id}c_name`:
+                                    document.getElementById(this.id + 'c_functionInput').style.display = "block";
+                                    break;
+                            }
+                        });
+                    }
+
+                    printDot(x, y) {
+                        this.pen.fillStyle = 'orange';
+                        this.pen.fillRect(x, y, 1, 1);
+                    }
+
+                    modiDot(x, y) {
+                        this.pen.fillStyle = 'white';
+                        this.pen.fillRect(((this.canvas.width / 2) + this.moveWidth) + x * (this.scaleFactor), ((this.canvas.height / 2) + this.moveHeight) - y * (this.scaleFactor), 1, 1);
+                    }
+
+                    printCross() {
+                        for (let x = 0; x < this.canvas.width; x++) {
+                            this.printDot(x, ((this.canvas.height) / 2) + this.moveHeight);
+                        }
+                        for (let y = 0; y < this.canvas.height; y++) {
+                            this.printDot(((this.canvas.width) / 2) + this.moveWidth, y);
+                        }
+                    }
+
+                    printUnit() {
+                        for (let x = this.canvas.width / 2 + this.moveWidth; x <= this.canvas.width; x += this.scaleFactor) {
+                            for (let y = this.canvas.height / 2 - 3; y <= this.canvas.height / 2 + 3; y++) {
+                                this.printDot(x, y + this.moveHeight);
+                            }
+                        }
+                        for (let x = this.canvas.width / 2 + this.moveWidth; x >= 0; x -= this.scaleFactor) {
+                            for (let y = this.canvas.height / 2 - 3; y <= this.canvas.height / 2 + 3; y++) {
+                                this.printDot(x, y + this.moveHeight);
+                            }
+                        }
+                        for (let y = this.canvas.height / 2 + this.moveHeight; y <= this.canvas.height; y += this.scaleFactor) {
+                            for (let x = this.canvas.width / 2 - 3; x <= this.canvas.width / 2 + 3; x++) {
+                                this.printDot(x + this.moveWidth, y);
+                            }
+                        }
+                        for (let y = this.canvas.height / 2 + this.moveHeight; y >= 0; y -= this.scaleFactor) {
+                            for (let x = this.canvas.width / 2 - 3; x <= this.canvas.width / 2 + 3; x++) {
+                                this.printDot(x + this.moveWidth, y);
+                            }
+                        }
+                    }
+
+                    firstGraph() {
+                        let f_a = Number(eval(document.getElementById(this.id + 'f_a').value));
+                        let f_b = Number(eval(document.getElementById(this.id + 'f_b').value));
+
+                        for (let x = -this.canvas.width / 2; x < this.canvas.width / 2; x = x + this.scalePrint) {
+                            const y = (f_a * x) + f_b;
+                            this.modiDot(x, y);
+                        }
+                    }
+
+                    secondGraph() {
+                        let s_a = Number(eval(document.getElementById(this.id + 's_a').value));
+                        let s_b = Number(eval(document.getElementById(this.id + 's_b').value));
+                        let s_c = Number(eval(document.getElementById(this.id + 's_c').value));
+
+                        for (let x = -250; x < 250; x = x + this.scalePrint) {
+                            const y = (s_a * x ** 2) + (s_b * x) + (s_c);
+                            this.modiDot(x, y);
+                        }
+                    }
+
+                    thirdGraph() {
+                        let t_a = Number(eval(document.getElementById(this.id + 't_a').value));
+                        let t_b = Number(eval(document.getElementById(this.id + 't_b').value));
+                        let t_c = Number(eval(document.getElementById(this.id + 't_c').value));
+                        let t_d = Number(eval(document.getElementById(this.id + 't_d').value));
+
+                        for (let x = -250; x < 250; x = x + this.scalePrint) {
+                            const y = (t_a * x ** 3) + (t_b * x ** 2) + (t_c * x) + (t_d);
+                            this.modiDot(x, y);
+                        }
+                    }
+
+                    circleGraph() {
+                        let c_a = Number(eval(document.getElementById(this.id + 'c_a').value));
+                        let c_b = Number(eval(document.getElementById(this.id + 'c_b').value));
+                        let c_r = Number(eval(document.getElementById(this.id + 'c_r').value));
+
+                        for (let i = 0; i <= 360; i++) {
+                            let radian = i * Math.PI / 180;
+                            let x = c_r * Math.cos(radian);
+                            let y = c_r * Math.sin(radian);
+                            this.modiDot(x + c_a, y + c_b);
+                        }
+                    }
+
+                    drawGraphs() {
+                        this.firstGraph();
+                        this.secondGraph();
+                        this.thirdGraph();
+                        this.circleGraph();
+                    }
+
+                    printGraph() {
+                        document.getElementById(this.id + 'drawBtn').addEventListener(
+                            'click',
+                            () => {
+                                this.drawGraphs();
+                            }
+                        );
+                    }
+
+                    updateCanvas() {
+                        this.pen.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                        this.printCross();
+                        this.printUnit();
+                    }
+
+                    zoom() {
+                        document.getElementById(this.id + 'zoomInBtn').addEventListener('click', () => {
+                            if (this.scaleFactor <= 75) {
+                                this.scaleFactor += 5;
+                                this.updateCanvas();
+                                this.drawGraphs();
+                            }
+                        })
+                        document.getElementById(this.id + 'zoomOutBtn').addEventListener('click', () => {
+                            if (this.scaleFactor >= 20) {
+                                this.scaleFactor -= 5;
+                                this.updateCanvas();
+                                this.drawGraphs();
+                            }
+                        })
+                    }
+
+                    zeroPoint() {
+                        document.getElementById(this.id + 'zeroBtn').addEventListener('click', () => {
+                            this.moveHeight = 0;
+                            this.moveWidth = 0;
+                            this.scaleFactor = 20;
+                            this.updateCanvas();
+                            this.drawGraphs();
+                        })
+                    }
+
+                    canvasClear() {
+                        document.getElementById(this.id + 'clearBtn').addEventListener('click', () => {
+                            this.pen.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                            document.querySelectorAll(`.${this.id}functionInput`).forEach(input => {
+                                input.value = '';
+                            })
+                            this.printCross();
+                            this.printUnit();
+                        })
+                    }
+
+                    canvasMove() {
+                        document.getElementById(this.id + 'moveBtnTop').addEventListener('click', () => {
+                            this.moveHeight += 20 * (this.scaleFactor / 20);
+                            this.updateCanvas();
+                            this.drawGraphs();
+                        });
+                        document.getElementById(this.id + 'moveBtnLeft').addEventListener('click', () => {
+                            this.moveWidth += 20 * (this.scaleFactor / 20);
+                            this.updateCanvas();
+                            this.drawGraphs();
+                            console.log(this.moveWidth)
+                        });
+                        document.getElementById(this.id + 'moveBtnBottom').addEventListener('click', () => {
+                            this.moveHeight -= 20 * (this.scaleFactor / 20);
+                            this.updateCanvas();
+                            this.drawGraphs();
+                        });
+                        document.getElementById(this.id + 'moveBtnRight').addEventListener('click', () => {
+                            this.moveWidth -= 20 * (this.scaleFactor / 20);
+                            this.updateCanvas();
+                            this.drawGraphs();
+                        });
+                    }
+
+                    controlCanvas() {
+                        this.initCan();
+                        this.menuSwitch();
+                        this.printCross();
+                        this.printUnit();
+                        this.printGraph();
+                        this.zeroPoint();
+                        this.zoom();
+                        this.canvasClear();
+                        this.canvasMove();
+                    }
+                }
+                const calcCanvas = new Canvas(this.id);
+                calcCanvas.controlCanvas();
+            }
+
+            control(targetDom) {
+                this.initCal(targetDom);
+                this.inputData();
+                this.operateCanvas();
+            }
+        }
+
+        class Duplicater {
+            constructor(id) {
+                this.id = id;
+            }
+            duplicate() {
+                let createCount = 1;
+                const createCalc = {
+                    Calculator1: new Calculation('Calculator1')
+                };
+
+                createCalc.Calculator1.control(document.getElementById('calcInputArea1'));
+
+                document.getElementById('moreBtn').addEventListener("click", () => {
+                    createCount++;
+                    const newCalculator = new Calculation(`Calculator${createCount}`);
+                    createCalc[`Calculator${createCount}`] = newCalculator;
+
+                    const newCalcArea = document.createElement('div');
+                    newCalcArea.id = `calcInputArea${createCount}`;
+                    newCalcArea.className = 'totalInputArea';
+                    document.getElementById('mainInputArea').appendChild(newCalcArea);
+                    newCalculator.control(document.getElementById(`calcInputArea${createCount}`));
+                });
+            }
+        }
+
+        const main = (() => {
+            const calGraph = new Duplicater('calGraph');
+            calGraph.duplicate();
+        })();
+
+    </script>
+</body>
+
+</html>
