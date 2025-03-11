@@ -1,0 +1,12 @@
+[
+    {"desc":"헬스 1일권", "price":"10,000원", "option1":"운동복", "option1_price":"5,000원"},
+    {"desc":"헬스 1개월권", "price":"80,000원", "option1":"운동복", "option1_price":"10,000원", "option2":"락커룸", "option2_price":"10,000원"},
+    {"desc":"헬스 3개월권", "price":"200,000원", "option1":"운동복", "option1_price":"20,000원", "option2":"락커룸", "option2_price":"20,000원"},
+    {"desc":"헬스 6개월권", "price":"350,000원", "option1":"운동복", "option1_price":"30,000원", "option2":"락커룸", "option2_price":"30,000원"},
+    {"desc":"헬스 12개월권", "price":"600,000원", "option1":"운동복", "option1_price":"60,000원", "option2":"락커룸", "option2_price":"60,000원"},
+    {"desc":"태닝", "option1":"1회", "option1_price":"20,000원", "option2":"10회", "option2_price":"180,000원"},
+    {"desc":"크라이오테라피", "option1":"1회", "option1_price":"30,000원", "option2":"10회", "option2_price":"270,000원"},
+    {"desc":"사우나", "option1":"1일", "option1_price":"10,000원", "option2":"1개월", "option2_price":"200,000원"},
+    {"desc":"운동복", "option1":"1일", "option1_price":"5,000원", "option2":"1개월", "option2_price":"20,000원"},
+    {"desc":"락커룸", "option1":"1일", "option1_price":"5,000원", "option2":"1개월", "option2_price":"20,000원"}
+]

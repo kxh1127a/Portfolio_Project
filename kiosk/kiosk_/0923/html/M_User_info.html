@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal3</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee+Inline&family=Bungee+Tint&family=Protest+Guerrilla&display=swap" rel="stylesheet">
+    <link href="../css/reset.css" rel="stylesheet">
+    <link href="../css/style_guide.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <style>
+        .name_error_message, .phone_error_message {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="modal_back">
+        <div class="modal user_info">
+            <div class="modal_header">내정보</div>
+            <div class="modal_contents">
+                <div class="modal_cont">
+                    <ul class="area_info">
+                        <li>
+                            <span>이름</span>
+                            <div class="area_input">
+                                <input type="text" class="successPla readonly_class" id="m_username_update" maxlength="20" autocomplete="off" readonly>
+                                <p id="name_error_message" class="name_error_message errorText">숫자 또는 특수기호는 입력하실 수 없습니다.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <span>성별</span>
+                            <div class="radio_toggle">
+                                <div class="radio_user_sex_btn">
+                                    <input id="radio_user_sex_btn_male" type="radio" name="userSex" value="male" checked disabled>
+                                    <label for="radio_user_sex_btn_male">남자</label>
+                                </div>
+                                <div class="radio_user_sex_btn">
+                                    <input id="radio_user_sex_btn_female" type="radio" name="userSex" value="female" disabled>
+                                    <label for="radio_user_sex_btn_female">여자</label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <span>전화번호</span>
+                            <div class="area_input">
+                                <input type="text" class="successPla readonly_class" id="m_usertel_update" autocomplete="off" readonly>
+                                <p id="phone_error_message" class="phone_error_message errorText">휴대전화번호가 정확한지 확인해 주세요.</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- <div class="line"></div> -->
+                    <div class="area_history">
+                        <div class="area_cont">
+                            <div class="title">잔여일수</div>
+                            <ul class="box">
+                                <!-- li 삽입 -->
+                            </ul>
+                        </div>
+                        <div class="area_cont area_before">
+                            <div class="title">이전구매내역</div>
+                            <ul class="box">
+                               <!-- li 삽입 -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal_footer">
+                <div class="area_btn">
+                    <button class="btn_black" id="close_modal">닫기</button>
+                    <button id="user_info_update" class="user_info_update">수정</button>
+                    <button id="user_info_update_success" class="user_info_update_success">확인</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="../js/M_User_info.js"></script>
+</body>
+</html>

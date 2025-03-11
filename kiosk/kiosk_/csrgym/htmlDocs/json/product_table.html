@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Price List</title>
+    <style>
+        table {
+            width: 50%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align: center;">Product Price List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Price (₩)</th>
+            </tr>
+        </thead>
+        <tbody id="product-table">
+            <!-- 데이터 추가 -->
+        </tbody>
+    </table>
+
+    <script>
+        // JSON DATA (문자열)
+        const ProdMainProductString = `{
+            "Ticket": {
+                "day": 10000,
+                "1month": 80000,
+                "3month": 200000,
+                "6month": 350000,
+                "12month": 600000
+            },
+            "tanning": 20000,
+            "Cryotherapy": 80000,
+            "saunaTicket": 10000,
+            "gymSuit": 5000,
+            "lockerRoom": 5000
+        }`;
+
+        // JSON 문자열을 객체로 파싱
+        const ProdMainProduct = JSON.parse(ProdMainProductString);
+
+        // table body 참조
+        const tableBody = document.getElementById('product-table');
+
+        // 티켓 가격 추가
+        for (let period in ProdMainProduct.Ticket) {
+            let row = `<tr>
+                        <td>Ticket (${period})</td>
+                        <td>${ProdMainProduct.Ticket[period].toLocaleString()}</td>
+                       </tr>`;
+            tableBody.innerHTML += row;
+        }
+
+        // 티켓 외 다른 상품 가격 추가
+        for (let product in ProdMainProduct) {
+            if (product !== "Ticket") {
+                let row = `<tr>
+                            <td>${product}</td>
+                            <td>${ProdMainProduct[product].toLocaleString()}</td>
+                           </tr>`;
+                tableBody.innerHTML += row;
+            }
+        }
+    </script>
+
+</body>
+</html>

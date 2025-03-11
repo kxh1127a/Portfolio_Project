@@ -1,0 +1,16 @@
+{
+    "userName": "홍길동",
+    "userSex": "male",
+    "userPhone": "010-5555-7777",
+    "remainingDays": [
+      { "product": "헬스 3개월권", "days": "6666일" },
+      { "product": "사우나", "days": "666일" },
+      { "product": "헬스 1일권", "days" : "" }
+    ],
+    "purchaseHistory": [
+      { "product": "헬스 6개월권", "date": "2020-03-21" },
+      { "product": "헬스 12개월권", "date": "2021-07-29" },
+      { "product": "헬스 6개월권", "date": "2022-09-07" }
+    ]
+  }
+  

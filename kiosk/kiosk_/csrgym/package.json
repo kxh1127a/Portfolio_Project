@@ -1,0 +1,17 @@
+{
+  "name": "exp5",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "supervisor ./src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.0",
+    "mysql": "^2.18.1",
+    "pug": "^3.0.3"
+  }
+}

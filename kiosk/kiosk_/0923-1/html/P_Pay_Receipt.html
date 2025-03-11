@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee+Inline&family=Bungee+Tint&family=Protest+Guerrilla&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style_guide.css">
+    <title>page7</title>
+    <style>
+        .receipt_btn_back {
+            font-size: 30px;
+        }
+
+        .receipt_wrap {
+            width: 100%;
+            height: 100vh;
+            font-family: "Noto Sans KR", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            background-color: #EDF0F3;
+            overflow-y: hidden;
+        }
+
+        .receipt_wrap_middle {
+            width: 100%;
+            height: 65%;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+        }
+
+        .pay_receipt {
+            width: 400px;
+            height: 90%;
+            border-radius: 15px;
+            padding: 30px;
+            overflow: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: start;
+            background-color: #f3f5f7;
+            border: 1px solid rgb(255, 255, 255);
+        }
+
+        .pay_receipt p,
+        .pay_receipt span {
+            line-height: 20px;
+            font-size: 14px;
+        }
+
+        .receipt_receipt,
+        .receipt_company {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 10px 0 10px 0;
+            border-top: 2px dotted black;
+
+        }
+
+        .receipt_company_info {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0 10px 0;
+        }
+
+        .receipt_company_info div:nth-child(2) {
+            text-align: end;
+        }
+
+        .receipt_product {
+            height: 40%;
+            width: 100%;
+            padding: 10px 0 10px 0;
+            border-top: 1px dashed black;
+            border-bottom: 1px dashed black;
+            overflow: auto;
+        }
+
+        .receipt_product div {
+            padding: 0 3px;
+        }
+
+        .receipt_product_title {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .receipt_product_title div {
+            width: 33.3333%;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .receipt_product_title div:first-child {
+            text-align: start;
+        }
+
+        .receipt_product_title div:last-child {
+            text-align: end;
+        }
+
+        label[class^=receipt_product_] {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            line-height: 20px;
+            font-size: 14px;
+        }
+
+        label[class^=receipt_product_] div {
+            width: 33.3333%;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        label[class^=receipt_product_] div:first-child {
+            text-align: start;
+        }
+
+        label[class^=receipt_product_] div:last-child {
+            text-align: end;
+        }
+
+        .receipt_product_total {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding: 10px 0 10px 0;
+        }
+
+        .receipt_product_total div {
+            font-size: 15px;
+            padding: 0 5px;
+        }
+
+        .receipt_thank {
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 10px 0 10px 0;
+            border-bottom: 2px dotted black;
+        }
+
+        .receipt_barcode {
+            width: 100%;
+            height: 10%;
+            background-image: url('../img/barcode.png');
+            background-size: contain;
+            margin-top: 10px;
+        }
+
+        .receipt_wrap_bottom {
+            display: flex;
+            height: 25%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        * {
+            -webkit-print-color-adjust: exact !important;
+        }
+
+        @media print {
+            .receipt_barcode {
+                background-image: url('../img/barcode.png');
+                background-size: contain;
+                margin-top: 10px;
+                height: 50px;
+                display: block;
+            }
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="receipt_wrap">
+        <header class="header_1"><img src="../img/cancel.png" alt="btn_back" class="btn_back receipt_btn_back"
+                onClick="location.href='P_Main_Intro.html'">
+            <p class="txt_logo">CSR GYM</p>
+            <p class="btn_myinfo"></p>
+        </header>
+        <div id="receipt_wrap_middle" class="receipt_wrap_middle">
+            <div id="receipt_print_area" class="pay_receipt">
+                <div class="receipt_receipt">RECEIPT</div>
+                <div class="receipt_company">CSR GYM</div>
+                <div class="receipt_company_info">
+                    <div>
+                        <p>Address</p>
+                        <p>Date</p>
+                    </div>
+                    <div>
+                        <p>경기도 안산시 단원구</p>
+                        <span id="current_year"></span><span>/</span>
+                        <span id="current_month"></span><span>/</span>
+                        <span id="current_day"></span>
+                    </div>
+                </div>
+                <div class="receipt_product">
+                    <div class="receipt_product_title">
+                        <div>Desc.</div>
+                        <div>Option</div>
+                        <div>Qty.</div>
+                        <div>Price</div>
+                    </div>
+                    <div class="receipt_product_list">
+                        <label class="receipt_product_1">
+                            <div>product1</div>
+                            <div>option1</div>
+                            <div>1</div>
+                            <div>120,000</div>
+                        </label>
+                        <label class="receipt_product_2">
+                            <div>product2</div>
+                            <div>option2</div>
+                            <div>2</div>
+                            <div>150,000</div>
+                        </label>
+                        <label class="receipt_product_3">
+                            <div>product3</div>
+                            <div>option3</div>
+                            <div>3</div>
+                            <div>60,000</div>
+                        </label>
+                    </div>
+                </div>
+                <div class="receipt_product_total">
+                    <div>Total</div>
+                    <div>330,000</div>
+                </div>
+                <div class="receipt_thank">Thank you</div>
+                <div class="receipt_barcode">
+                    <!-- <img src="../img/barcode.png" alt="Barcode" style="width: 100%; height: auto;"> -->
+                </div>
+            </div>
+        </div>
+        <div class="receipt_wrap_bottom">
+            <div class="area_btn">
+                <button id="receipt_print_btn" class="btn_black">출력하기</button>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <script src="../js/P_Pay_Receipt.js"></script>
+</body>
+
+</html>

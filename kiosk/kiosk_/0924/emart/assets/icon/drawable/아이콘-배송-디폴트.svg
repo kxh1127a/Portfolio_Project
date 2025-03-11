@@ -1,0 +1,31 @@
+<svg id="아이콘-배송-디폴트" xmlns="http://www.w3.org/2000/svg" width="36.001" height="36.001" viewBox="0 0 36.001 36.001">
+    <defs>
+        <style>
+            .cls-1{fill:none}.cls-2{fill:#424242}
+        </style>
+    </defs>
+    <g id="그룹_445" data-name="그룹 445">
+        <path id="패스_166" data-name="패스 166" class="cls-1" d="M467.759 216.033h36v36h-36z" transform="translate(-467.759 -216.033)"/>
+        <path id="_Transparent_Rectangle_" data-name="Transparent Rectangle" class="cls-1" transform="translate(3 3)" d="M0 0h30v30H0z"/>
+    </g>
+    <g id="그룹_634" data-name="그룹 634" transform="translate(-693.77 -247.033)">
+        <path id="사각형_314" data-name="사각형 314" class="cls-1" transform="translate(697.774 251.132)" d="M0 0h27.901v27.901H0z"/>
+        <g id="그룹_520" data-name="그룹 520">
+            <g id="그룹_519" data-name="그룹 519">
+                <g id="그룹_518" data-name="그룹 518">
+                    <path id="패스_773" data-name="패스 773" class="cls-2" d="M716.693 270.748h-8.081v-1.4h6.688v-10.611h-14.135v1.454h-1.4v-2.849h16.923z"/>
+                    <path id="패스_774" data-name="패스 774" class="cls-2" d="M702.673 270.748h-2.9v-7h1.4v5.6h1.508z"/>
+                    <path id="패스_775" data-name="패스 775" class="cls-2" d="M725.774 270.748h-3.966v-1.4h2.571v-2.639l-2.733-1.094-1.684-3.291H716v-1.4h4.82l1.834 3.586 3.125 1.251z"/>
+                    <path id="패스_776" data-name="패스 776" class="cls-2" d="M706.715 272.822a2.524 2.524 0 1 1 2.525-2.525 2.528 2.528 0 0 1-2.525 2.525zm0-3.653a1.129 1.129 0 1 0 1.13 1.128 1.129 1.129 0 0 0-1.13-1.128z"/>
+                    <circle id="타원_121" data-name="타원 121" class="cls-2" cx=".673" cy=".673" r=".673" transform="translate(706.043 269.625)"/>
+                    <circle id="타원_122" data-name="타원 122" class="cls-2" cx=".673" cy=".673" r=".673" transform="translate(719.309 269.625)"/>
+                    <path id="패스_777" data-name="패스 777" class="cls-2" d="M719.982 272.822a2.524 2.524 0 1 1 2.524-2.525 2.527 2.527 0 0 1-2.524 2.525zm0-3.653a1.129 1.129 0 1 0 1.129 1.128 1.129 1.129 0 0 0-1.129-1.128z"/>
+                    <path id="사각형_315" data-name="사각형 315" class="cls-2" transform="translate(700.66 266.236)" d="M0 0h15.336v1.395H0z"/>
+                    <path id="패스_778" data-name="패스 778" class="cls-2" d="M717.579 263.472h1.73l.961 1.923h-2.692z"/>
+                </g>
+                <path id="사각형_316" data-name="사각형 316" class="cls-2" transform="translate(699.792 260.98)" d="M0 0h4.975v1.395H0z"/>
+                <path id="사각형_317" data-name="사각형 317" class="cls-2" transform="rotate(-89.6 482.309 -219.436)" d="M0 0h1.395v6.425H0z"/>
+            </g>
+        </g>
+    </g>
+</svg>

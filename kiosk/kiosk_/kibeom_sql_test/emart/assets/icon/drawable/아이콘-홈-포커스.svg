@@ -1,0 +1,25 @@
+<svg id="아이콘-홈-포커스" xmlns="http://www.w3.org/2000/svg" width="36" height="36.001" viewBox="0 0 36 36.001">
+    <defs>
+        <style>
+            .cls-1{fill:none}
+        </style>
+    </defs>
+    <g id="그룹_463" data-name="그룹 463">
+        <g id="그룹_462" data-name="그룹 462">
+            <path id="패스_166" data-name="패스 166" class="cls-1" d="M323.8 171.6h36v36h-36z" transform="translate(-323.801 -171.604)"/>
+        </g>
+        <path id="_Transparent_Rectangle_" data-name="Transparent Rectangle" class="cls-1" transform="translate(3 2.999)" d="M0 0h30v30H0z"/>
+    </g>
+    <g id="그룹_544" data-name="그룹 544" transform="translate(-397.976 -244.605)">
+        <path id="사각형_330" data-name="사각형 330" class="cls-1" transform="translate(397.976 244.606)" d="M0 0h36v36H0z"/>
+        <g id="그룹_603" data-name="그룹 603">
+            <path id="사각형_368" data-name="사각형 368" class="cls-1" transform="translate(403.976 250.606)" d="M0 0h24v24H0z"/>
+            <g id="그룹_602" data-name="그룹 602">
+                <path id="사각형_369" data-name="사각형 369" transform="translate(413.955 264.432)" style="fill:#ffb300" d="M0 0h4.739v7.127H0z"/>
+                <path id="패스_884" data-name="패스 884" d="M423.207 272.5h-14.68l-.137-10.338h-3.98l11.518-9.732 11.633 9.732H422v-1.8h.6l-6.67-5.58-6.6 5.58h.838l.132 10.338h11.1v-7.49h1.8z"/>
+                <path id="패스_885" data-name="패스 885" d="M414.855 271.559h-1.8v-8.027h5.639v1.8h-3.839z"/>
+                <path id="패스_886" data-name="패스 886" d="M418.981 272.459h-1.1v-.9h-.7v-5.106h1.8z"/>
+            </g>
+        </g>
+    </g>
+</svg>

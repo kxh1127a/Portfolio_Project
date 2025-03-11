@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee+Inline&family=Bungee+Tint&family=Protest+Guerrilla&display=swap" rel="stylesheet">
+    <link href="../css/reset.css" rel="stylesheet">
+    <link href="../css/style_guide.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <title>P_Prod_Main</title>
+</head>
+<body>
+    <div class="wrap main">
+        <header class="header_2">
+            <img src="../img/leftarrow.png" alt="btn_back" class="btn_back" onclick ="history.back();">
+            <p class="txt_logo">CSR GYM</p>
+            <a class="btn_user_info" ></a>
+        </header>
+
+        <div class="contents">
+            <div class="area_menu">
+                <ul>
+                    <li class="product_item">
+                        <img class="service_img"></img>
+                        <div class="service_name">헬스 1일권</div>
+                        <div class="service_price">10,000<sapn>원</sapn></div>
+                    </li>
+                    <li class="product_item">
+                        <img src="../img/greyMembership.png" class="service_img"></img>
+                        <div class="service_name">헬스 1개월권</div>
+                        <div class="service_price">80,000<span>원</span></div>
+                    </li>
+                    <li class="product_item">
+                        <img src="../img/navyMembership.png" class="service_img"></img>
+                        <div class="service_name">헬스 3개월권</div>
+                        <div class="service_price">200,000<span>원</span></div>
+                    </li>
+                    <li class="product_item">
+                        <img class="service_img"></img>
+                        <div class="service_name">헬스 6개월권</div>
+                        <div class="service_price">350,000<span>원</span></div>
+                    </li>
+                    <!-- #4a3000 #004a0a -->
+                    <li class="product_item">
+                        <img class="service_img"></img>
+                        <div class="service_name">헬스 12개월권</div>
+                        <div class="service_price">600,000<span>원</span></div>
+                    </li>
+                    <li class="product_item">
+                        <img class="service_img"></img>
+                        <div class="service_name">태닝</div>
+                        <div class="service_price">20,000<span>원</span></div>
+                    </li>
+                    <li class="product_item">
+                        <img class="service_img"></img>
+                        <div class="service_name">크라이오테라피</div>
+                        <div class="service_price">80,000<span>원</span></div>
+                    </li>
+                    <li class="product_item">
+                        <img class="service_img"></img>
+                        <div class="service_name">사우나</div>
+                        <div class="service_price">10,000<span>원</span></div>
+                    </li>
+                    <li class="product_item">
+                        <img class="service_img"></img>
+                        <div class="service_name">운동복</div>
+                        <div class="service_price">5,000<span>원</span></div>
+                    </li>
+                    <li class="product_item">
+                        <img class="service_img"></img>
+                        <div class="service_name">락커룸</div>
+                        <div class="service_price">5,000<span>원</span></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="area_bottom">
+                <div class="area_cart">
+                    <ul>
+                        <li class="cart_item">
+                            <div class="service_name">서비스명</div>
+                            <div class="option_name">옵션명</div>
+                            <div class="service_quantity">수량</div>
+                            <div class="service_price">금액</div>
+                            <div class="area_btn">
+                                <button class="btn_cancel cartItemClose"></button>
+                            </div>
+                        </li>
+                        <li class="cart_item">
+                            <div class="service_name">서비스명</div>
+                            <div class="option_name">옵션명</div>
+                            <div class="service_quantity">수량</div>
+                            <div class="service_price">금액</div>
+                            <div class="area_btn">
+                                <button class="btn_cancel cartItemClose"></button>
+                            </div>
+                        </li>
+                        <li class="cart_item">
+                            <div class="service_name">서비스명</div>
+                            <div class="option_name">옵션명</div>
+                            <div class="service_quantity">수량</div>
+                            <div class="service_price">금액</div>
+                            <div class="area_btn">
+                                <button class="btn_cancel cartItemClose"></button>
+                            </div>
+                        </li>
+                        <li class="cart_item">
+                            <div class="service_name">서비스명</div>
+                            <div class="option_name">옵션명</div>
+                            <div class="service_quantity">수량</div>
+                            <div class="service_price">금액</div>
+                            <div class="area_btn">
+                                <button class="btn_cancel cartItemClose"></button>
+                            </div>
+                        </li>
+                        <li class="cart_item">
+                            <div class="service_name">서비스명</div>
+                            <div class="option_name">옵션명</div>
+                            <div class="service_quantity">수량</div>
+                            <div class="service_price">금액</div>
+                            <div class="area_btn">
+                                <button class="btn_cancel cartItemClose"></button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="area_btn">
+                    <button class="btn_default btn_black" onClick="location.href='P_Pay_OrderDetail.html'">결제하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 상품옵션 모달팝업 -->
+    <div class="modal_back">
+        <div class="modal Prod_Sub">
+            <div class="modal_contents">
+                <div class="modal_cont">
+                    <div class="service_info">
+                        <img class="service_img" src="../img/blueMembership.png">
+                        <div class="service_name">헬스 3개월권</div>
+                        <div class="service_price">200,000<span>원</span></div>
+                    </div>
+                    <div class="area_option">
+                        <div class="area_btn">
+                            <button class="btn_middle btn_default">운동복</button>
+                            <button class="btn_middle btn_default">락커룸</button>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                </div>
+            </div>
+            <div class="modal_footer">
+                <div class="area_btn">
+                    <button class="btn_default" id="modalClose">취소</button>
+                    <button class="btn_black">담기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 고객정보 모달팝업 -->
+    <div id="userInfo" class="modal_back">
+        <div class="modal user_info">
+            <div class="modal_header">내정보</div>
+            <div class="modal_contents">
+                <div class="modal_cont">
+                    <ul class="area_info">
+                        <li>
+                            <span>이름</span>
+                            <input type="text" class="successPla" readonly>
+                        </li>
+                        <li>
+                            <span>성별</span>
+                            <div class="radio_toggle">
+                                <div class="radio_user_sex_btn">
+                                    <input id="radio_user_sex_btn_male" type="radio" name="userSex" value="male" checked>
+                                    <label for="radio_user_sex_btn_male">남자</label>
+                                </div>
+                                <div class="radio_user_sex_btn">
+                                    <input id="radio_user_sex_btn_female" type="radio" name="userSex" value="female">
+                                    <label for="radio_user_sex_btn_female">여자</label>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <span>전화번호</span>
+                            <input type="text" class="successPla" readonly>
+                        </li>
+                    </ul>
+                    <!-- <div class="line"></div> -->
+                    <div class="area_history">
+                        <div class="area_cont">
+                            <div class="title">잔여일수</div>
+                            <ul class="box">
+                                <li>
+                                    <span>헬스 3개월권</span>
+                                    <span class="day">666일</span>
+                                </li>
+                                <li>
+                                    <span>헬스 3개월권</span>
+                                    <span class="day">666일</span>
+                                </li>
+                                <li>
+                                    <span>헬스 3개월권</span>
+                                    <span class="day">666일</span>
+                                </li>
+                                <li>
+                                    <span>헬스 3개월권</span>
+                                    <span class="day">666일</span>
+                                </li>
+                                <li>
+                                    <span>헬스 3개월권</span>
+                                    <span class="day">666일</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="area_cont">
+                            <div class="title">이전구매내역</div>
+                            <ul class="box">
+                                <li>
+                                    <span>헬스 3개월권</span>
+                                    <span class="history">2012-05-18</span>
+                                </li>
+                                <li>
+                                    <span>헬스 3개월권</span>
+                                    <span class="history">2012-05-18</span>
+                                </li>
+                                <li>
+                                    <span>헬스 3개월권</span>
+                                    <span class="history">2012-05-18</span>
+                                </li>
+                                <li>
+                                    <span>헬스 3개월권</span>
+                                    <span class="history">2012-05-18</span>
+                                </li>
+                                <li>
+                                    <span>헬스 3개월권</span>
+                                    <span class="history">2012-05-18</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal_footer">
+                <div class="area_btn">
+                    <button class="btn_black">닫기</button>
+                </div>
+            </div>
+        </div>
+
+    <script src="../js/modal.js"></script>
+    <script src="../js/M_Prod_main.js"></script>
+    <script src="./js/M_User_info.js"></script>
+</body>
+</html>

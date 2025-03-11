@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee+Inline&family=Bungee+Tint&family=Protest+Guerrilla&display=swap" rel="stylesheet">
+    <link href="../css/reset.css" rel="stylesheet">
+    <link href="../css/style_guide.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <title>Pay_OrderDetail</title>
+</head>
+
+<body>
+    <main class="orderDetail_all_wrap">
+        <header class="header_1">
+            <img src="../img/leftarrow.png" alt="btn_back" class="btn_back" onclick ="history.back();">
+            <p class="txt_logo">CSR GYM</p>
+            <p class="btn_myinfo"></p>
+        </header>
+        <div class="orderDetail_lower_wrap">
+            <div class="orderDetail_box">
+                <ul>
+                    <li>
+                        <div class="detailbox_txt">서비스명</div>
+                        <div class="detailbox_txt">옵션명</div>
+                        <div class="detailbox_txt">수량</div>
+                        <div class="detailbox_txt">금액</div>
+
+                    </li>
+                    <li>
+                        <div class="detailbox_txt">헬스 3개월권</div>
+                        <div class="detailbox_txt">운동복 / 락커룸</div>
+                        <div class="detailbox_txt">1</div>
+                        <div class="detailbox_txt">100,000원</div>
+
+                    </li>
+                    <li>
+                        <div class="detailbox_txt">크라이오테라피</div>
+                        <div class="detailbox_txt">10회</div>
+                        <div class="detailbox_txt">1</div>
+                        <div class="detailbox_txt">270,000원</div>
+
+                    </li>
+                </ul>
+                <div class="orderDetail_totalbox">
+                    <div class="detailbox_txt"></div>
+                    <div class="detailbox_txt"></div>
+                    <div class="detailbox_txt">총 금액</div>
+                    <div class="detailbox_txt">370,000원</div>
+                </div>
+            </div>
+            <p class="installment">할부 선택</p>
+            <div class="area_btn">
+                <button class="btn_white btn_middle">일시불</button>
+                <button class="btn_white btn_middle">3개월</button>
+                <button class="btn_white btn_middle">6개월</button>
+                <button class="btn_white btn_middle">12개월</button>
+            </div>
+        </div>
+        <footer class="orderDetail_footer">
+            <div class="area_btn">
+                <button class="btn_black" onClick="location.href='P_Pay_Progress.html'">결제하기</button>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+
+</html>

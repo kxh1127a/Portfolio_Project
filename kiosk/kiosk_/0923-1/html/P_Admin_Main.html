@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee+Inline&family=Bungee+Tint&family=Protest+Guerrilla&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+    <link href="../css/reset.css" rel="stylesheet">
+    <link href="../css/style_guide.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <title>Admin</title>
+</head>
+
+<body>
+    <div class="wrap admin">
+        <header class="header_1"><img src="../img/leftarrow.png" alt="btn_back" class="btn_back">
+            <p class="txt_logo">CSR GYM</p>
+            <p class="btn_myinfo"></p>
+        </header>
+    
+        <div class="toggle_Area">
+            <div class="area_btn price_Btn">
+                <button class="btn_default priceAll_Btn btn_black">매출</button>
+                <button class="btn_default member_Btn">회원</button>
+            </div>
+    
+            <div class="area_btn month_Btn">
+                <button class="btn_default days_price btn_black">일별</button>
+                <button class="btn_default month_price">월별</button>
+            </div>
+    
+            <div class="date_data">
+                <p class="day_date">2024-09-20</p>
+            </div>
+        </div>
+
+        <div class="wrapBox">
+            <div class="day_data data_box">
+                <div class="data_header">
+                    <div class="product_name">
+                        <p>상품명</p>
+                    </div>
+                    <div class="product_count">
+                        <p>판매 수량</p>
+                    </div>
+                    <div class="product_price">
+                        <p>판매 금액</p>
+                    </div>
+                </div>
+                <div class="data_main">
+                    <ul>
+                        <li>
+                            <div class="product_name">
+                                <p>정기권</p>
+                            </div>
+                            <div class="product_count">
+                                <p>5</p>
+                            </div>
+                            <div class="product_price">
+                                <p>2,000,000원</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product_name">
+                                <p>태닝</p>
+                            </div>
+                            <div class="product_count">
+                                <p>2</p>
+                            </div>
+                            <div class="product_price">
+                                <p>2,000,000원</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product_name">
+                                <p>크라이오테라피</p>
+                            </div>
+                            <div class="product_count">
+                                <p>3</p>
+                            </div>
+                            <div class="product_price">
+                                <p>2,000,000원</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="product_name">
+                                <p>사우나</p>
+                            </div>
+                            <div class="product_count">
+                                <p>7</p>
+                            </div>
+                            <div class="product_price">
+                                <p>2,000,000원</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="customerBox">
+                <div class="searchBox">
+                    <!-- <select class="selectBox">
+                        <option value="1" selected>성명</option>
+                        <option value="2">전화번호</option>
+                    </select> -->
+                    <input id="searchInput" type="text" class="input_search" placeholder="이름 또는 전화번호(- 제외)를 입력하세요">
+                    <button id="searchBtn" class="searchBtn"><i class="xi-search"></i></ㅠ>
+                </div>
+                <div class="tableBox">
+                    <table id="searchedUserList">
+                        <th scope="col">이름</th>
+                        <th scope="col">성별</th>
+                        <th scope="col">전화번호</th>
+                        <th scope="col">구매내역</th>
+                        <!-- <tr>
+                            <td>강주희</td>
+                            <td>여</td>
+                            <td>010-0000-0000</td>
+                            <td><i class="xi-search"></i></td>
+                        </tr>
+                        <tr>
+                            <td>김수경</td>
+                            <td>여</td>
+                            <td>010-1111-1111</td>
+                            <td><i class="xi-search"></i></td>
+                        </tr> -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/P_Admin_Main.js"></script>
+    <script>
+        // js
+        function init() {
+            load_json();
+            search();
+        }
+        
+        // 임시 데이터
+        const userDataList = [
+          {"id": "1", "name": "홍인영", "sex": "여",  "phone": "01051925705"},
+          {"id": "2", "name": "윤정원", "sex": "남", "phone": "01086012830"},
+          {"id": "3", "name": "홍길동", "sex": "남", "phone": "000"}
+        ];
+
+        // 화면에 데이터 뿌리기
+        function load_json() {
+            console.log("dd")
+            const json_display_area = document.getElementById('searchedUserList');
+
+            userDataList.forEach((user) => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${user.name}</td>
+                    <td>${user.sex}</td>
+                    <td>${user.phone}</td>
+                    <td><i class="xi-search"></i></td>
+                `;
+                json_display_area.appendChild(tr);
+            });
+        }
+        
+        // 검색 기능
+        function search(){
+            const searchInput = document.getElementById('searchInput');
+            const searchedUserList = document.getElementById('searchedUserList');
+            const searchBtn = document.getElementById('searchBtn');
+            let searchedDataList = [];
+
+            searchInput.addEventListener(
+                'keyup',
+                (event)=>{
+                    if (event.key === 'Enter') {
+                        console.log(event.target.value);
+                        const searchValue = event.target.value;
+
+                        if (searchValue !== '') {
+                            function isEven(value) {
+                                // 이름 또는 전번 일치
+                                return value.name.includes(searchValue) || value.phone.includes(searchValue);
+                            }
+                            // 위에서 거른거 출력
+                            searchedDataList = userDataList.filter(isEven);
+                            // console.log(searchedDataList)
+
+                            searchedUserList.innerHTML = searchedDataList
+                                .map((data) => {
+                                    return `
+                                        <tr>
+                                            <td>${data.name}</td>
+                                            <td>${data.sex}</td>
+                                            <td>${data.phone}</td>
+                                            <td><i class="xi-search"></i></td>
+                                        </tr>`;
+                                })
+                                .join('');
+                            } else {
+
+                            // 검색어가 없을 시 리스트 초기화 및 숨김 처리
+                            searchedUserList.style.display = 'none';
+                            searchedDataList = [];
+                        }
+                    }
+                }
+            )
+
+            searchBtn.addEventListener(
+                'click',
+                (event)=>{
+                    console.log(searchInput.value);
+                    const searchValue = searchInput.value;
+
+                    if (searchValue !== '') {
+                        function isEven(value) {
+                            // 이름 또는 전번 일치
+                            return value.name.includes(searchValue) || value.phone.includes(searchValue);
+                        }
+                        // 위에서 거른거 출력
+                        searchedDataList = userDataList.filter(isEven);
+                        // console.log(searchedDataList)
+
+                        searchedUserList.innerHTML = searchedDataList
+                            .map((data) => {
+                                return `
+                                    <tr>
+                                        <td>${data.name}</td>
+                                        <td>${data.sex}</td>
+                                        <td>${data.phone}</td>
+                                        <td><i class="xi-search"></i></td>
+                                    </tr>`;
+                            })
+                            .join('');
+                        } else {
+
+                        // 검색어가 없을 시 리스트 초기화 및 숨김 처리
+                        searchedUserList.style.display = 'none';
+                        searchedDataList = [];
+                        }
+                }
+            )
+        }
+
+        init();
+
+    </script>
+
+    
+</body>
+
+</html>

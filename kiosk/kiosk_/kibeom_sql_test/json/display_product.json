@@ -1,0 +1,92 @@
+[
+    {
+        "desc": "헬스 1일권",
+        "img": "../img/1dayImg.png",
+        "price": "10000",
+        "option1": "운동복",
+        "option1_price": "5000",
+        "option2": "락커룸",
+        "option2_price": "10000"
+    },
+    {
+        "desc": "헬스 1개월권",
+        "img": "../img/1month.png",
+        "price": "80000",
+        "option1": "운동복",
+        "option1_price": "10000",
+        "option2": "락커룸",
+        "option2_price": "10000"
+    },
+    {
+        "desc": "헬스 3개월권",
+        "img": "../img/3month.png",
+        "price": "200000",
+        "option1": "운동복",
+        "option1_price": "20000",
+        "option2": "락커룸",
+        "option2_price": "20000"
+    },
+    {
+        "desc": "헬스 6개월권",
+        "img": "../img/6month.png",
+        "price": "350000",
+        "option1": "운동복",
+        "option1_price": "30000",
+        "option2": "락커룸",
+        "option2_price": "30000"
+    },
+    {
+        "desc": "헬스 12개월권",
+        "img": "../img/12month.png",
+        "price": "600000원",
+        "option1": "운동복",
+        "option1_price": "60000",
+        "option2": "락커룸",
+        "option2_price": "60000"
+    },
+    {
+        "desc": "태닝",
+        "img": "../img/tanning.png",
+        "price": "20000",
+        "option1": "1회",
+        "option1_price": "20000",
+        "option2": "10회",
+        "option2_price": "180000"
+    },
+    {
+        "desc": "크라이오테라피",
+        "img": "../img/cryotherapy.png",
+        "price": "30000",
+        "option1": "1회",
+        "option1_price": "30000",
+        "option2": "10회",
+        "option2_price": "270000"
+    },
+    {
+        "desc": "사우나",
+        "img": "../img/sauna.png",
+        "price": "10000",
+        "option1": "1일",
+        "option1_price": "10000",
+        "option2": "1개월",
+        "option2_price": "200000"
+    },
+    {
+        "desc": "운동복",
+        "img": "../img/sportswear.png",
+        "price": "5000",
+        "option1": "1일",
+        "option1_price": "5000",
+        "option2": "1개월",
+        "option2_price": "20000"
+    },
+    {
+        "desc": "락커룸",
+        "img": "../img/lockerroom.png",
+        "price": "5000",
+        "option1": "1일",
+        "option1_price": "5000",
+        "option2": "1개월",
+        "option2_price": "20000"
+    }
+]

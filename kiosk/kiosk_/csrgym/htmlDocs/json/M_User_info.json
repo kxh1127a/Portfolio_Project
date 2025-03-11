@@ -1,0 +1,14 @@
+{
+    "userName": "김수경",
+    "userSex": "female",
+    "userPhone": "010-1234-5678",
+    "remainingDays": [
+      { "product": "헬스 3개월권", "days": "666일" },
+      { "product": "헬스 3개월권", "days": "666일" }
+    ],
+    "purchaseHistory": [
+      { "product": "헬스 3개월권", "date": "2012-05-18" },
+      { "product": "헬스 3개월권", "date": "2012-05-18" }
+    ]
+  }
+  

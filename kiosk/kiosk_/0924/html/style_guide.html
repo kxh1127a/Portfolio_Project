@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Bungee+Inline&family=Bungee+Tint&family=Protest+Guerrilla&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style_guide.css">
+    <title>스타일가이드</title>
+</head>
+<body>  
+    <div class="wrap style_guide">
+        <h1>Style Guide</h1>
+        <ul>
+            <li>
+                <h3>Header</h3>
+                <header class="header_1"><img src="../img/leftarrow.png" alt="btn_back" class="btn_back">
+                    <p class="txt_logo">CSR GYM</p>
+                    <p class="btn_myinfo"></p>
+                </header>
+            
+                <header class="header_2">
+                    <img src="../img/leftarrow.png" alt="btn_back" class="btn_back">
+                    <p class="txt_logo">CSR GYM</p>
+                    <a class="btn_user_info"></a>
+                </header>
+            
+                <header class="modal_header">
+                    <p class="btn_back"></p>
+                    <p class="txt_myinfo">내 정보</p>
+                    <button class="btn_cancel"></button>
+                </header>
+            </li>
+            <li>
+                <h3>Button</h3>
+                <!-- area_btn 까지 함께 쓸것 #d3dfe9-->
+                <div class="area_btn">
+                    <button class="btn_default">취소</button>
+                    <button class="btn_white">다음</button>
+                </div>
+                <br><br><br>
+                <button class="btn_product btn_default">운동복</button>
+                <button class="btn_product btn_default">락커룸</button>
+                <br><br><br>
+                <button class="btn_default">btn_default</button>
+                <button class="btn_black">btn_black</button>
+                <button class="btn_white">btn_white</button>
+                <button class="btn_blue">btn_blue</button>
+                <button class="btn_red">btn_red</button>
+                <button class="btn_yellow">btn_yellow</button>
+                <button class="btn_gray">btn_gray</button>
+                <br><br><br>
+                <button class="btn_default btn_small">btn_default</button>
+                <button class="btn_white btn_small">btn_white</button>
+                <button class="btn_red btn_small">btn_red</button>
+                <button class="btn_yellow btn_small">btn_yellow</button>
+                <button class="btn_gray btn_small">btn_gray</button>
+                <br><br><br>
+                <a class="btn_user_info"></a>
+                <button class="btn_cancel"></button>
+                <br><br><br>
+                <button class="btn_default btn_big">btn_default</button>
+            </li>
+            <br><br><br>
+            <li>
+                <h3>Check Box</h3>
+                <div class="checkbox_wrap">
+                    <input type="checkbox" id="checkbox_agree">
+                    <label for="checkbox_agree"><span>개인정보 수집 및 이용, 개인정보 취급위탁에 동의합니다.</span></label>
+                </div>
+            </li>
+            <br><br><br>
+            <li>
+                <h3>Radio</h3>
+                <div class="radio_wrap">
+                    <label class="radio_user_sex">성별 : </label>
+
+                    <div class="radio_toggle">
+
+                        <div class="radio_user_sex_btn">
+                            <input id="radio_user_sex_btn_male" type="radio" name="userSex" value="male" checked>
+                            <label for="radio_user_sex_btn_male">남자</label>
+                        </div>
+
+                        <div class="radio_user_sex_btn">
+                            <input id="radio_user_sex_btn_female" type="radio" name="userSex" value="female">
+                            <label for="radio_user_sex_btn_female">여자</label>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <br><br><br>
+            <li>
+                <h3>input </h3>
+                <div class="wrap">
+                    <div class="area_input">
+                        <input type="text" placeholder="Phone Number" class="successPla">
+                    </div>
+
+                    <br><br><br>
+
+                    <div class="area_input">
+                        <input type="text" placeholder="Phone Number" class="errorPla">
+                        <p class="errorText">한글 또는 영문, 특수기호는 입력하실 수 없습니다.</p>
+                    </div>
+                    
+                    <br><br><br>
+                    <div class="area_input">
+                        <input type="text" placeholder="Phone Number" class="successPlaing">
+                    </div>
+
+                    <!-- <br><br><br>
+                    <input type="text" class="input_Phone_Number successing"> -->
+                    
+                    <!-- <input type="text" class="input_Phone_Number error">
+                    <p class="errorText">한글 또는 영문, 특수기호는 입력하실 수 없습니다.</p>
+                    <br><br><br> -->
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

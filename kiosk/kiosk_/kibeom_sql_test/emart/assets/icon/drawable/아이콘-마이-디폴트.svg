@@ -1,0 +1,18 @@
+<svg id="아이콘-마이-디폴트" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+    <defs>
+        <style>
+            .cls-1,.cls-2{fill:none}.cls-2{stroke:#424242;stroke-miterlimit:10;stroke-width:1.5px}
+        </style>
+    </defs>
+    <g id="그룹_451" data-name="그룹 451">
+        <path id="패스_166" data-name="패스 166" class="cls-1" d="M397.789 216.033h36v36h-36z" transform="translate(-397.789 -216.033)"/>
+        <path id="_Transparent_Rectangle_" data-name="Transparent Rectangle" class="cls-1" transform="translate(3 2.754)" d="M0 0h30.246v30.246H0z"/>
+    </g>
+    <g id="그룹_574" data-name="그룹 574" transform="translate(-200.801 -522.631)">
+        <path id="사각형_348" data-name="사각형 348" class="cls-1" transform="translate(206.801 528.631)" d="M0 0h24v24H0z"/>
+        <g id="그룹_573" data-name="그룹 573">
+            <circle id="타원_131" data-name="타원 131" class="cls-2" cx="3.689" cy="3.689" r="3.689" transform="translate(215.112 531.778)"/>
+            <path id="패스_857" data-name="패스 857" class="cls-2" d="M209.911 545.957a8.317 8.317 0 0 0-.71 3.527H228.4s.537-7.913-9.474-8.082a12.251 12.251 0 0 0-6.286 1.541"/>
+        </g>
+    </g>
+</svg>

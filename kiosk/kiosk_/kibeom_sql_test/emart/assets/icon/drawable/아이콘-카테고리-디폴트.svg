@@ -1,0 +1,29 @@
+<svg id="아이콘-카테고리-디폴트" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+    <defs>
+        <style>
+            .cls-1,.cls-2{fill:none}.cls-2{stroke:#424242;stroke-miterlimit:10;stroke-width:1.5px}
+        </style>
+    </defs>
+    <g id="그룹_439" data-name="그룹 439">
+        <path id="패스_166" data-name="패스 166" class="cls-1" d="M198.879 216.033h36v36h-36z" transform="translate(-198.879 -216.033)"/>
+        <path id="_Transparent_Rectangle_" data-name="Transparent Rectangle" class="cls-1" transform="translate(3 3)" d="M0 0h30v30H0z"/>
+    </g>
+    <g id="그룹_583" data-name="그룹 583" transform="translate(-299.389 -522.631)">
+        <path id="사각형_353" data-name="사각형 353" class="cls-1" transform="translate(305.389 528.631)" d="M0 0h24v24H0z"/>
+        <g id="그룹_582" data-name="그룹 582">
+            <path id="패스_866" data-name="패스 866" class="cls-2" d="M307.5 531.109h8.632v8.052h-8.052v-4.026"/>
+            <path id="사각형_354" data-name="사각형 354" class="cls-2" transform="translate(319.227 531.109)" d="M0 0h8.052v8.052H0z"/>
+            <path id="사각형_355" data-name="사각형 355" class="cls-2" transform="translate(308.079 542.102)" d="M0 0h8.052v8.052H0z"/>
+            <path id="사각형_356" data-name="사각형 356" class="cls-2" transform="translate(319.227 542.102)" d="M0 0h8.052v8.052H0z"/>
+        </g>
+    </g>
+    <g id="그룹_583-2" data-name="그룹 583" transform="translate(-299.389 -522.631)">
+        <path id="사각형_353-2" data-name="사각형 353" class="cls-1" transform="translate(305.389 528.631)" d="M0 0h24v24H0z"/>
+        <g id="그룹_582-2" data-name="그룹 582">
+            <path id="패스_866-2" data-name="패스 866" class="cls-2" d="M307.5 531.109h8.632v8.052h-8.052v-4.026"/>
+            <path id="사각형_354-2" data-name="사각형 354" class="cls-2" transform="translate(319.227 531.109)" d="M0 0h8.052v8.052H0z"/>
+            <path id="사각형_355-2" data-name="사각형 355" class="cls-2" transform="translate(308.079 542.102)" d="M0 0h8.052v8.052H0z"/>
+            <path id="사각형_356-2" data-name="사각형 356" class="cls-2" transform="translate(319.227 542.102)" d="M0 0h8.052v8.052H0z"/>
+        </g>
+    </g>
+</svg>

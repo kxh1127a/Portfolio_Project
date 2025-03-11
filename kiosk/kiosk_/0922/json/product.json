@@ -1,0 +1,14 @@
+{
+    "Ticket":{
+        "day":10000,
+        "1month":80000,
+        "3month":200000,
+        "6month":3500000,
+        "12month":600000
+    },
+    "tanning": 20000,
+    "Cryotherapy":80000,
+    "saunaTicket":10000,
+    "gymSuit":5000,
+    "lockerRoom": 5000
+}
