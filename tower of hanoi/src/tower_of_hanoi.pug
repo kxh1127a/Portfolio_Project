@@ -1,0 +1,41 @@
+doctype html
+html(lang="ko")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Tower of Hanoi
+    link(href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&family=Staatliches&display=swap", rel="stylesheet")
+    link(rel="icon", href="./images/lighthouse_1874219.png")
+    link(rel="stylesheet", href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css")
+    link(rel="stylesheet", href="./tower_of_hanoi.css")
+    script(src="./tower_of_hanoi.js")
+
+  body
+    .outerWrap
+      .innerWrap
+        h1.headerArea Tower of Hanoi
+        .mainArea
+          .towerBox#firstBox
+            // div.disc1 p 1
+            // div.disc2 p 2
+            // div.disc3 p 3
+            // div.disc4 p 4
+            // div.disc5 p 5
+            // div.disc6 p 6
+            // div.disc7 p 7
+            // div.disc8 p 8
+            // div.disc9 p 9
+          .towerBox#secondBox
+          .towerBox#thirdBox
+        .footerArea
+          input.discNum#discNum(type="number", min="1", max="10", placeholder="1 ~ 9")
+          button.startBtn#startBtn START
+          button.resetBtn#resetBtn RESET
+          .navBtn#navBtn
+          .countNum#countNum 0
+        .modal#modal
+          .modalContent
+            span.closeBtn#closeBtn
+              i.xi-close-min
+            h2 Procedure Steps
+            .procedureSteps#procedureSteps
